@@ -38,7 +38,8 @@ function umbra_setup() {
 	 *
 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 */
-	//add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'post-thumbnails' );
+	set_post_thumbnail_size( 600, 9999 ); // 600 pixels wide by unlimited tall
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -141,7 +142,7 @@ function umbra_fonts_url() {
 			$font_families[] = 'Fenix:400';
 
 		if ( 'off' !== $montserrat )
-			$font_families[] = 'Montserrat:400';
+			$font_families[] = 'Montserrat:400,700';
 
 		$protocol = is_ssl() ? 'https' : 'http';
 		$query_args = array(
