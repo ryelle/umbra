@@ -96,6 +96,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('publish', ['build', 'compress:main']);
 
 	// Default task.
-	grunt.registerTask('default', ['build']);
+	grunt.registerTask('default', ['dev']);
 
 };
