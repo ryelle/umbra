@@ -3,15 +3,6 @@
  * Sample implementation of the Custom Header feature
  * http://codex.wordpress.org/Custom_Headers
  *
- * You can add an optional custom header image to header.php like so ...
-
-	<?php if ( get_header_image() ) : ?>
-	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-		<img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="">
-	</a>
-	<?php endif; // End header image check. ?>
-
- *
  * @package Umbra
  */
 
@@ -24,58 +15,42 @@
  */
 function umbra_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'umbra_custom_header_args', array(
-		'default-image'          => '',
-		'default-text-color'     => '000000',
-		'width'                  => 1000,
-		'height'                 => 250,
-		'flex-height'            => true,
-		'wp-head-callback'       => 'umbra_header_style',
+		'default-image'          => umbra_get_default_header_image(),
+		'width'                  => 170,
+		'height'                 => 170,
+		'wp-head-callback'       => '__return_false',
 		'admin-head-callback'    => 'umbra_admin_header_style',
 		'admin-preview-callback' => 'umbra_admin_header_image',
+		// Color is not customizable
+		'header-text'            => false,
 	) ) );
 }
 add_action( 'after_setup_theme', 'umbra_custom_header_setup' );
 
-if ( ! function_exists( 'umbra_header_style' ) ) :
 /**
- * Styles the header image and text displayed on the blog
+ * A default header image
  *
- * @see umbra_custom_header_setup().
+ * Use the admin email's gravatar as the default header image.
  */
-function umbra_header_style() {
-	$header_text_color = get_header_textcolor();
+function umbra_get_default_header_image() {
 
-	// If no custom options for text are set, let's bail
-	// get_header_textcolor() options: HEADER_TEXTCOLOR is default, hide text (returns 'blank') or any hex value
-	if ( HEADER_TEXTCOLOR == $header_text_color ) {
-		return;
+	// Get default from Discussion Settings.
+	$default = get_option( 'avatar_default', 'mystery' ); // Mystery man default
+	if ( 'mystery' == $default ) {
+		$default = 'mm';
+	} elseif ( 'gravatar_default' == $default ) {
+		$default = '';
 	}
 
-	// If we get this far, we have custom styles. Let's do this.
-	?>
-	<style type="text/css">
-	<?php
-		// Has the text been hidden?
-		if ( 'blank' == $header_text_color ) :
-	?>
-		.site-title,
-		.site-description {
-			position: absolute;
-			clip: rect(1px, 1px, 1px, 1px);
-		}
-	<?php
-		// If the user has set a custom color for the text use that
-		else :
-	?>
-		.site-title a,
-		.site-description {
-			color: #<?php echo $header_text_color; ?>;
-		}
-	<?php endif; ?>
-	</style>
-	<?php
-}
-endif; // umbra_header_style
+	$protocol = ( is_ssl() ) ? 'https://secure.' : 'http://';
+	$url = sprintf( '%1$sgravatar.com/avatar/%2$s/', $protocol, md5( get_option( 'admin_email' ) ) );
+	$url = add_query_arg( array(
+		's' => 170,
+		'd' => urlencode( $default ),
+	), $url );
+
+	return esc_url_raw( $url );
+} // umbra_get_default_header_image
 
 if ( ! function_exists( 'umbra_admin_header_style' ) ) :
 /**
@@ -87,16 +62,22 @@ function umbra_admin_header_style() {
 ?>
 	<style type="text/css">
 		.appearance_page_custom-header #headimg {
+			padding: 60px 45px;
+			width: 170px;
 			border: none;
-		}
-		#headimg h1,
-		#desc {
+			background-color: #424046;
+			text-align: center;
 		}
 		#headimg h1 {
+			font: bold italic 24px Vollkorn, serif;
 		}
 		#headimg h1 a {
+			color: #e9e3f4;
+			text-decoration: none;
 		}
 		#desc {
+			font: 12px Montserrat, sans-serif;
+			color: #8f8a99;
 		}
 		#headimg img {
 		}
@@ -111,15 +92,13 @@ if ( ! function_exists( 'umbra_admin_header_image' ) ) :
  *
  * @see umbra_custom_header_setup().
  */
-function umbra_admin_header_image() {
-	$style = sprintf( ' style="color:#%s;"', get_header_textcolor() );
-?>
+function umbra_admin_header_image() { ?>
 	<div id="headimg">
-		<h1 class="displaying-header-text"><a id="name"<?php echo $style; ?> onclick="return false;" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
-		<div class="displaying-header-text" id="desc"<?php echo $style; ?>><?php bloginfo( 'description' ); ?></div>
 		<?php if ( get_header_image() ) : ?>
 		<img src="<?php header_image(); ?>" alt="">
 		<?php endif; ?>
+		<h1 class="displaying-header-text"><a id="name" onclick="return false;" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
+		<div class="displaying-header-text" id="desc"><?php bloginfo( 'description' ); ?></div>
 	</div>
 <?php
 }
