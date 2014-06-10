@@ -73,3 +73,7 @@
 	clear: both;
 	margin: 0 0 $spacing;
 }
+
+.entry-image {
+	margin: ( $alt-spacing * -2 ) ( $alt-spacing * -1.5 ) ( $alt-spacing );
+}
