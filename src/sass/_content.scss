@@ -14,7 +14,10 @@
 	text-align: center;
 }
 
-.site-image {}
+.site-image {
+	border-radius: 50%;
+	overflow: hidden;
+}
 
 .site-title {
 	margin: $spacing 0;
