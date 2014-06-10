@@ -15,6 +15,9 @@ $header4-size: 16;
 
 $monospace-size: 15;
 
+$normal: 400;
+$bold: 700;
+
 
 // Base color scheme
 $body-background: #f9f9f9;
@@ -25,6 +28,11 @@ $alt-color: #b5b1bd;
 
 $sidebar-bg-color: #424046;
 $main-bg-color: white;
+
+// Main menu colors
+$nav-text-color: #e9e3f4;
+$nav-bg-color: #333038;
+$nav-current-bg-color: #221f26;
 
 // Use the color scheme colors to create element-specific styles
 $link-color: $alt-color;
