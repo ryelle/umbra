@@ -14,7 +14,7 @@
 // Image Captions
 .wp-caption {
 	border: 1px solid #ccc;
-	margin-bottom: $vspacing;
+	margin-bottom: $spacing;
 	max-width: 100%;
 
 	img[class*="wp-image-"] {
@@ -33,7 +33,7 @@
 
 	@extend %clearfix;
 
-	margin-bottom: $vspacing;
+	margin-bottom: $spacing;
 
 	.gallery-item {
 		float: left;

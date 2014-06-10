@@ -5,29 +5,40 @@ select,
 textarea {
 	color: $text-color;
 	font-family: $base-font;
-	font-size: 16px;
-	font-size: 1.6rem;
+	@include font-size($base-size);
 	line-height: 1.5;
 }
 
 /* Headings */
-h1,h2,h3,h4,h5,h6 {
+h1, h2, h3, h4, h5, h6 {
 	font-family: $header-font;
-	clear: both;
 }
+h1 {
+	@include font-size($header1-size);
+}
+h2 {
+	@include font-size($header2-size);
+}
+h3 {
+	@include font-size($header3-size);
+}
+h4 {
+	@include font-size($header4-size);
+}
+
 hr {
 	background-color: #ccc;
 	border: 0;
 	height: 1px;
-	margin-bottom: $vspacing;
+	margin-bottom: $spacing;
 }
 
 /* Text elements */
 p {
-	margin-bottom: $vspacing;
+	margin-bottom: $spacing;
 }
 ul, ol {
-	margin: 0 0 $vspacing 3em;
+	margin: 0 0 $spacing 3em;
 }
 ul {
 	list-style: disc;
@@ -38,13 +49,13 @@ ol {
 li > ul,
 li > ol {
 	margin-bottom: 0;
-	margin-left: $vspacing;
+	margin-left: $spacing;
 }
 dt {
 	font-weight: bold;
 }
 dd {
-	margin: 0 $vspacing $vspacing;
+	margin: 0 $spacing $spacing;
 }
 b, strong {
 	font-weight: bold;
@@ -53,16 +64,15 @@ dfn, cite, em, i {
 	font-style: italic;
 }
 blockquote {
-	margin: 0 $vspacing;
+	margin: 0 $spacing;
 }
 address {
-	margin: 0 0 $vspacing;
+	margin: 0 0 $spacing;
 }
 pre {
 	background: #eee;
-	font-family: "Courier 10 Pitch", Courier, monospace;
-	font-size: 15px;
-	font-size: 1.5rem;
+	font-family: $monospace-font;
+	@include font-size( $monospace-size );
 	line-height: 1.6;
 	margin-bottom: 1.6em;
 	padding: 1.6em;
@@ -104,7 +114,7 @@ figure {
 	margin: 0;
 }
 table {
-	margin: 0 0 $vspacing;
+	margin: 0 0 $spacing;
 	width: 100%;
 }
 th {

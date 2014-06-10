@@ -1,26 +1,72 @@
+/* =Global
+----------------------------------------------- */
+.site-content {
+	background-color: white;
+}
+
+/* =Header
+----------------------------------------------- */
+.site-header-bg {
+	background-color: $sidebar-bg-color;
+}
+
+.site-header {
+	text-align: center;
+}
+
+.site-image {}
+
+.site-title {
+	margin: $spacing 0;
+	@include font-size(24);
+	line-height: 1;
+	font-style: italic;
+
+	a {
+		text-decoration: none;
+	}
+}
+
+.site-description {
+	font-family: $alt-font;
+	@include font-size( 12 );
+	color: #8f8a99;
+}
+
+
 /* =Content
 ----------------------------------------------- */
 
-.sticky {
-}
+.sticky { /*! Not used. */ }
+
 .hentry {
-	margin: 0 0 $vspacing;
+	margin: 0 0 $spacing;
 }
+
 .byline,
 .updated {
 	display: none;
 }
-.single, .group-blog {
+
+.single,
+.group-blog {
 	.byline {
 		display: inline;
 	}
 }
+
+.entry-title,
+.entry-title a {
+	color: $header-color;
+}
+
 .page-content,
 .entry-content,
 .entry-summary {
-	margin: $vspacing 0 0;
+	margin: $spacing 0 0;
 }
+
 .page-links {
 	clear: both;
-	margin: 0 0 $vspacing;
+	margin: 0 0 $spacing;
 }

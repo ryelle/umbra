@@ -1,18 +1,37 @@
-// Some common variables and mixins to get you started.
-// Variables allow you to re-use colors, sizes, and other values without repeating
-// yourself. This means that changes that should be small, such as tweaking the
-// coloring or the sizing, can be done in one place, not all over the stylesheet.
 
-$base-font: sans-serif;
-$header-font: $base-font; // you can refer to other variables
+// Base typography
+$base-font: 'Fenix';
+$header-font: 'Vollkorn';
+$alt-font: 'Montserrat';
+$monospace-font: "Courier 10 Pitch", Courier, monospace;
 
-// base color scheme
-$body-background: #fff;
-$text-color: #404040;
-$link-color: royalblue;
-$link-visited: purple;
+$base-size: 18;
+$alt-size: 10;
 
-// Supported Values for $layout:
-//  null | content-sidebar | sidebar-content
-$layout: null !default;
-$vspacing: 1.5em;
+$header1-size: 28;
+$header2-size: 24;
+$header3-size: 18;
+$header4-size: 16;
+
+$monospace-size: 15;
+
+
+// Base color scheme
+$body-background: #f9f9f9;
+$text-color: #424046;
+$header-color: #6b6479; // saturate(lighten(#6b6479, 50), 50)
+$highlight-color: #e0bc64;
+$alt-color: #b5b1bd;
+
+$sidebar-bg-color: #424046;
+$main-bg-color: white;
+
+// Use the color scheme colors to create element-specific styles
+$link-color: $alt-color;
+$link-visited: $alt-color;
+
+// Layout values
+$site-width: 860px;
+$sidebar-width: 30.23256%; // 260 ÷ 860
+$spacing: 25px;
+$alt-spacing: 30px;
