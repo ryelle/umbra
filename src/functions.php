@@ -227,22 +227,22 @@ function umbra_tonesque_scheme() {
 	$white = new Color('0xffffff');
 	$black = new Color('0x000000');
 
-	$body_background = new Color( '#' . $base_color, 'hex' );
+	$body_background = clone $base_color;
 	if ( 250 < $body_background->getDistanceRgbFrom( $white ) ) {
 		$body_background = $body_background->lighten( 25 );
 	} elseif ( 150 < $body_background->getDistanceRgbFrom( $white ) ) {
 		$body_background = $body_background->lighten( 15 );
 	}
 
-	$title_color = new Color( '#' . $base_color, 'hex' );
-	$site_title_color = new Color( '#' . $base_color, 'hex' );
-	$link_color = new Color( '#' . $base_color, 'hex' );
-	$hover_color = new Color( '#' . $base_color, 'hex' );
-	$description_color = new Color( '#' . $base_color, 'hex' );
-	$nav_text_color = new Color( '#' . $base_color, 'hex' );
-	$nav_bg_color = new Color( '#' . $base_color, 'hex' );
-	$nav_current_bg_color = new Color( '#' . $base_color, 'hex' );
-	$sidebar_bg_color = new Color( '#' . $base_color, 'hex' );
+	$title_color = clone $base_color;
+	$site_title_color = clone $base_color;
+	$link_color = clone $base_color;
+	$hover_color = clone $base_color;
+	$description_color = clone $base_color;
+	$nav_text_color = clone $base_color;
+	$nav_bg_color = clone $base_color;
+	$nav_current_bg_color = clone $base_color;
+	$sidebar_bg_color = clone $base_color;
 
 	$sidebar_bg_color = $sidebar_bg_color->darken( 10 )->desaturate( 15 );
 
