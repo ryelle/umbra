@@ -58,9 +58,7 @@ class Tonesque {
 
 		// Finds dominant color
 		$color = self::grab_color( $img, $points );
-		// Passes value to Color class
-		$color = self::get_color( $color, $type );
-		return $color;
+		return new Color( $color, 'rgb' );
 	}
 
 	/**
