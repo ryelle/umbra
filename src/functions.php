@@ -224,11 +224,13 @@ function umbra_tonesque_scheme() {
 	$image = new Tonesque( $image_src );
 
 	$base_color = $image->color();
+	$white = new Color('0xffffff');
+	$black = new Color('0x000000');
 
 	$body_background = new Color( '#' . $base_color, 'hex' );
-	if ( 250 < $body_background->getDistanceRgbFrom( new Color('#ffffff', 'hex') ) ) {
+	if ( 250 < $body_background->getDistanceRgbFrom( $white ) ) {
 		$body_background = $body_background->lighten( 25 );
-	} elseif ( 150 < $body_background->getDistanceRgbFrom( new Color('#ffffff', 'hex') ) ) {
+	} elseif ( 150 < $body_background->getDistanceRgbFrom( $white ) ) {
 		$body_background = $body_background->lighten( 15 );
 	}
 
@@ -244,7 +246,7 @@ function umbra_tonesque_scheme() {
 
 	$sidebar_bg_color = $sidebar_bg_color->darken( 10 )->desaturate( 15 );
 
-	if ( 150 < $sidebar_bg_color->getDistanceRgbFrom( new Color('#000000', 'hex') ) ) {
+	if ( 150 < $sidebar_bg_color->getDistanceRgbFrom( $black ) ) {
 		$site_title_color = $site_title_color->lighten( 13 );
 		$description_color = $description_color->desaturate( 25 )->lighten( 15 );
 		$nav_text_color = $nav_text_color->lighten( 25 );
@@ -258,7 +260,7 @@ function umbra_tonesque_scheme() {
 		$nav_current_bg_color = $nav_current_bg_color->lighten( 10 );
 	}
 
-	if ( 150 > $body_background->getDistanceRgbFrom( new Color('#ffffff', 'hex') ) ) {
+	if ( 150 > $body_background->getDistanceRgbFrom( $white ) ) {
 		$title_color = $title_color->desaturate( 25 )->darken( 15 );
 		$link_color = $link_color->desaturate( 25 )->darken( 10 );
 		$hover_color = $hover_color->desaturate( 25 )->darken( 20 );
