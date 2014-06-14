@@ -7,11 +7,17 @@
 
 class Umbra_ImageColors {
 
+	private $white;
+	private $black;
+
 	function __construct() {
 		add_action( 'wp_head', array( $this, 'wp_head' ) );
 	}
 
 	function wp_head() {
+		if ( ! class_exists( 'Jetpack' ) || ! current_theme_supports( 'tonesque' ) ) {
+			return;
+		}
 		if ( ! is_singular() || ! has_post_thumbnail() ) {
 			return;
 		}

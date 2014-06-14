@@ -33,6 +33,9 @@ function umbra_setup() {
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 
+	// Support tonesque from Jetpack
+	add_theme_support( 'tonesque' );
+
 	/*
 	 * Enable support for Post Thumbnails on posts and pages.
 	 *
