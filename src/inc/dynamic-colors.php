@@ -29,7 +29,7 @@ class Umbra_ImageColors {
 		// Check cache, then generate as needed
 		global $umbra_scheme;
 		$umbra_scheme = $this->generate_css();
-		get_template_part( 'partials/color-scheme' );
+		get_template_part( 'css-color-scheme' );
 	}
 
 	public function generate_css( $image_id = false ) {
