@@ -216,6 +216,11 @@ function umbra_mce_css( $mce_css ) {
 add_filter( 'mce_css', 'umbra_mce_css' );
 
 /**
+ * Load dynamic colors file.
+ */
+require get_template_directory() . '/inc/dynamic-colors.php';
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
