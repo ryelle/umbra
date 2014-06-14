@@ -33,6 +33,9 @@ function umbra_setup() {
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 
+	// Support tonesque from Jetpack
+	add_theme_support( 'tonesque' );
+
 	/*
 	 * Enable support for Post Thumbnails on posts and pages.
 	 *
@@ -213,36 +216,38 @@ function umbra_mce_css( $mce_css ) {
 add_filter( 'mce_css', 'umbra_mce_css' );
 
 function umbra_tonesque_scheme() {
+	if ( ! class_exists( 'Jetpack' ) || ! current_theme_supports( 'tonesque' ) ) {
+		return;
+	}
+
 	if ( ! is_singular() || ! has_post_thumbnail() ) {
 		return;
 	}
 
 	$thumb_attrs = wp_get_attachment_image_src( get_post_thumbnail_id() );
 	$image_src = $thumb_attrs[0];
-
-	require get_template_directory() . '/inc/tonesque/tonesque.php';
 	$image = new Tonesque( $image_src );
 
 	$base_color = $image->color();
-	$white = new Color('0xffffff');
-	$black = new Color('0x000000');
+	$white = new Jetpack_Color('0xffffff');
+	$black = new Jetpack_Color('0x000000');
 
-	$body_background = clone $base_color;
+	$body_background = new Jetpack_Color( $base_color );
 	if ( 250 < $body_background->getDistanceRgbFrom( $white ) ) {
 		$body_background = $body_background->lighten( 25 );
 	} elseif ( 150 < $body_background->getDistanceRgbFrom( $white ) ) {
 		$body_background = $body_background->lighten( 15 );
 	}
 
-	$title_color = clone $base_color;
-	$site_title_color = clone $base_color;
-	$link_color = clone $base_color;
-	$hover_color = clone $base_color;
-	$description_color = clone $base_color;
-	$nav_text_color = clone $base_color;
-	$nav_bg_color = clone $base_color;
-	$nav_current_bg_color = clone $base_color;
-	$sidebar_bg_color = clone $base_color;
+	$title_color = new Jetpack_Color( $base_color );
+	$site_title_color = new Jetpack_Color( $base_color );
+	$link_color = new Jetpack_Color( $base_color );
+	$hover_color = new Jetpack_Color( $base_color );
+	$description_color = new Jetpack_Color( $base_color );
+	$nav_text_color = new Jetpack_Color( $base_color );
+	$nav_bg_color = new Jetpack_Color( $base_color );
+	$nav_current_bg_color = new Jetpack_Color( $base_color );
+	$sidebar_bg_color = new Jetpack_Color( $base_color );
 
 	$sidebar_bg_color = $sidebar_bg_color->darken( 10 )->desaturate( 15 );
 
