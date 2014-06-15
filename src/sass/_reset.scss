@@ -55,8 +55,13 @@ ol, ul {
 	list-style: none;
 }
 table { /* tables still need 'cellspacing="0"' in the markup */
+	margin: 0 0 $spacing;
+	width: 100%;
 	border-collapse: separate;
 	border-spacing: 0;
+}
+figure {
+	margin: 0;
 }
 caption, th, td {
 	font-weight: normal;
@@ -64,6 +69,7 @@ caption, th, td {
 }
 img {
 	max-width: 100%;
+	height: auto; /* Make sure images are scaled correctly. */
 	vertical-align: middle;
 }
 blockquote:before, blockquote:after,

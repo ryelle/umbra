@@ -58,6 +58,46 @@
 	}
 }
 
+.entry-meta {
+	position: relative;
+	font-family: $alt-font;
+	@include font-size( $alt-size );
+	text-transform: uppercase;
+	color: $alt-color;
+
+	a {
+		color: $highlight-color;
+		@include hoverActiveFocus {
+			text-decoration: underline;
+		}
+	}
+
+	.genericon {
+		position: absolute;
+		top: 0;
+		right: ( $alt-spacing*-1.5 - 20 );
+		padding: 4px;
+		height: 40px;
+		width: 40px;
+		font-size: 10px;
+		border-radius: 50%;
+		color: black;//$header-color;
+		background-color: $header-color;
+		text-align: center;
+
+		&:before {
+			font-size: 32px;
+			color: white;
+		}
+
+		&.genericon-comment {
+			top: 50px;
+			color: black;//color: $highlight-color;
+			background-color: $highlight-color;
+		}
+	}
+}
+
 .entry-title,
 .entry-title a {
 	color: $header-color;

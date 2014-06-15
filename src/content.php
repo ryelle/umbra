@@ -2,17 +2,25 @@
 /**
  * @package Umbra
  */
+$format = get_post_format();
+if ( false === $format ) {
+	$format = 'standard';
+}
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
-
 		<?php if ( 'post' == get_post_type() ) : ?>
 		<div class="entry-meta">
 			<?php umbra_posted_on(); ?>
+			<a href="<?php echo get_post_format_link( $format ); ?>"><i class="genericon genericon-<?php echo esc_attr( $format ); ?>"></i></a>
+			<?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
+			<?php comments_popup_link( '<i class="genericon genericon-comment"></i>', '<i class="genericon genericon-comment">1</i>', '<i class="genericon genericon-comment">%</i>' ); ?>
+			<?php endif; ?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
+
+		<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 	</header><!-- .entry-header -->
 
 	<?php if ( is_search() ) : // Only display Excerpts for Search ?>
@@ -53,10 +61,6 @@
 			</span>
 			<?php endif; // End if $tags_list ?>
 		<?php endif; // End if 'post' == get_post_type() ?>
-
-		<?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
-		<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'umbra' ), __( '1 Comment', 'umbra' ), __( '% Comments', 'umbra' ) ); ?></span>
-		<?php endif; ?>
 
 		<?php edit_post_link( __( 'Edit', 'umbra' ), '<span class="edit-link">', '</span>' ); ?>
 	</footer><!-- .entry-footer -->

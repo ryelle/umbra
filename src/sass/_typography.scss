@@ -110,25 +110,16 @@ small {
 big {
 	font-size: 125%;
 }
-figure {
-	margin: 0;
-}
-table {
-	margin: 0 0 $spacing;
-	width: 100%;
-}
 th {
 	font-weight: bold;
-}
-img {
-	height: auto; /* Make sure images are scaled correctly. */
-	max-width: 100%; /* Adhere to container width. */
 }
 
 /* Links */
 a {
 	color: $link-color;
+	text-decoration: none;
 	@include hoverActiveFocus {
 		color: darken($link-color, 30%);
+		text-decoration: underline;
 	}
 }
