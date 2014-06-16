@@ -2,6 +2,10 @@
 /**
  * @package Umbra
  */
+$format = get_post_format();
+if ( false === $format ) {
+	$format = 'standard';
+}
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -10,11 +14,14 @@
 	</div>
 
 	<header class="entry-header">
-		<h1 class="entry-title"><?php the_title(); ?></h1>
-
 		<div class="entry-meta">
 			<?php umbra_posted_on(); ?>
+			<?php if ( 'standard' != $format ) : ?><a href="<?php echo get_post_format_link( $format ); ?>"><?php endif; ?>
+			<i class="genericon genericon-<?php echo esc_attr( $format ); ?>"></i>
+			<?php if ( 'standard' != $format ) : ?></a><?php endif; ?>
 		</div><!-- .entry-meta -->
+
+		<h1 class="entry-title"><?php the_title(); ?></h1>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">

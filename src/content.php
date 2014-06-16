@@ -13,9 +13,11 @@ if ( false === $format ) {
 		<?php if ( 'post' == get_post_type() ) : ?>
 		<div class="entry-meta">
 			<?php umbra_posted_on(); ?>
-			<a href="<?php echo get_post_format_link( $format ); ?>"><i class="genericon genericon-<?php echo esc_attr( $format ); ?>"></i></a>
+			<?php if ( 'standard' != $format ) : ?><a href="<?php echo get_post_format_link( $format ); ?>"><?php endif; ?>
+			<i class="genericon genericon-<?php echo esc_attr( $format ); ?>"></i>
+			<?php if ( 'standard' != $format ) : ?></a><?php endif; ?>
 			<?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
-			<?php comments_popup_link( '<i class="genericon genericon-comment"></i>', '<i class="genericon genericon-comment">1</i>', '<i class="genericon genericon-comment">%</i>' ); ?>
+			<?php comments_popup_link( '<i class="genericon genericon-comment"></i>', '<i class="genericon genericon-comment"><span>1</span></i>', '<i class="genericon genericon-comment"><span>%</span></i>' ); ?>
 			<?php endif; ?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
