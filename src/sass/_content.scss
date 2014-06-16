@@ -1,7 +1,7 @@
 /* =Global
 ----------------------------------------------- */
 .site-content {
-	background-color: white;
+	background-color: $main-bg-color;
 }
 
 /* =Header
@@ -81,7 +81,7 @@
 		width: 40px;
 		font-size: 10px;
 		border-radius: 50%;
-		color: black;//$header-color;
+		color: $header-color;
 		background-color: $header-color;
 		text-align: center;
 
@@ -90,9 +90,22 @@
 			color: white;
 		}
 
+		span {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 40px;
+			width: 40px;
+			text-align: center;
+			line-height: 36px;
+			font-family: $alt-font;
+			@include font-size( $alt-size );
+			font-weight: $bold;
+		}
+
 		&.genericon-comment {
 			top: 50px;
-			color: black;//color: $highlight-color;
+			color: $highlight-color;
 			background-color: $highlight-color;
 		}
 	}
