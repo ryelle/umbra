@@ -42,31 +42,32 @@ class Umbra_ImageColors {
 		$this->black = new Jetpack_Color('0x000000');
 
 		$scheme = array();
-		$scheme_keys = array( 'body_background', 'title_color', 'site_title_color', 'link_color', 'hover_color', 'description_color', 'nav_text_color', 'nav_bg_color', 'nav_current_bg_color', 'sidebar_bg_color' );
+		$scheme_keys = array( 'body-background', 'text-color', 'header-color', 'highlight-color', 'alt-color', 'sidebar-bg-color', 'main-bg-color', 'nav-text-color', 'nav-bg-color', 'nav-current-bg-color', 'link-color', 'link-visited' );
 		$scheme_keys = apply_filters( 'umbra_color_scheme_options', $scheme_keys );
 
 		foreach ( $scheme_keys as $key ){
 			$scheme[$key] = new Jetpack_Color( $color );
 		}
 
-		if ( $scheme['body_background']->getDistanceRgbFrom( $this->white ) > 250 ) {
-			$scheme['body_background']->lighten( 25 );
-		} elseif ( $scheme['body_background']->getDistanceRgbFrom( $this->white ) > 150 ) {
-			$scheme['body_background']->lighten( 15 );
+		// Check the lightness of the background, and adjust as necessary
+		if ( $scheme['body-background']->getDistanceRgbFrom( $this->white ) > 250 ) {
+			$scheme['body-background']->lighten( 25 );
+		} elseif ( $scheme['body-background']->getDistanceRgbFrom( $this->white ) > 150 ) {
+			$scheme['body-background']->lighten( 15 );
 		}
 
-		if ( $scheme['body_background']->getDistanceRgbFrom( $this->white ) < 150 ) {
+		if ( $scheme['body-background']->getDistanceRgbFrom( $this->white ) < 150 ) {
 			$scheme['title_color']->desaturate( 25 )->darken( 15 );
-			$scheme['link_color']->desaturate( 25 )->darken( 10 );
-			$scheme['hover_color']->desaturate( 25 )->darken( 20 );
+			$scheme['link-color']->desaturate( 25 )->darken( 10 );
+			$scheme['hover-color']->desaturate( 25 )->darken( 20 );
 		} else {
 			$scheme['title_color']->desaturate( 25 )->darken( 5 );
-			$scheme['link_color']->desaturate( 25 )->lighten( 7 );
-			$scheme['hover_color']->desaturate( 25 );
+			$scheme['link-color']->desaturate( 25 )->lighten( 7 );
+			$scheme['hover-color']->desaturate( 25 );
 		}
 
-		$scheme['sidebar_bg_color']->darken( 10 )->desaturate( 15 );
-		if ( 150 < $scheme['sidebar_bg_color']->getDistanceRgbFrom( $this->black ) ) {
+		$scheme['sidebar-bg-color']->darken( 10 )->desaturate( 15 );
+		if ( 150 < $scheme['sidebar-bg-color']->getDistanceRgbFrom( $this->black ) ) {
 			$scheme['site_title_color']->lighten( 13 );
 			$scheme['description_color']->desaturate( 25 )->lighten( 15 );
 			$scheme['nav_text_color']->lighten( 25 );

@@ -1,37 +1,58 @@
 <?php global $umbra_scheme; ?>
 <style type="text/css">
 body {
-	background: <?php echo $umbra_scheme['body_background']; ?>;
+	background: <?php echo $umbra_scheme['body-background']; ?>;
 }
 a {
-	color: <?php echo $umbra_scheme['link_color']; ?>;
+	color: <?php echo $umbra_scheme['link-color']; ?>;
 }
-a:hover, a:active, a:focus {
-	color: <?php echo $umbra_scheme['hover_color']; ?>;
+a:hover,
+a:active,
+a:focus {
+	color: <?php echo $umbra_scheme['hover-color']; ?>;
 }
-.entry-title,
-.entry-title a {
-	color: <?php echo $umbra_scheme['title_color']; ?>;
+
+.site-content {
+	background-color: <?php echo $umbra_scheme['main-bg-color']; ?>;
 }
-.site-title a {
-	color: <?php echo $umbra_scheme['site_title_color']; ?>;
+
+.site-header-bg {
+	background-color: <?php echo $umbra_scheme['sidebar-bg-color']; ?>;
 }
-.site-description {
-	color: <?php echo $umbra_scheme['description_color']; ?>;
-}
+
 .main-navigation ul li a {
-	color: <?php echo $umbra_scheme['nav_text_color']; ?>;
-	background-color: <?php echo $umbra_scheme['nav_bg_color']; ?>;
+	color: <?php echo $umbra_scheme['nav-text-color']; ?>;
+	background-color: <?php echo $umbra_scheme['nav-bg-color']; ?>;
 }
-.main-navigation ul .current_page_item a,
-.main-navigation ul .current-menu-item a,
+
 .main-navigation ul li a:hover,
 .main-navigation ul li a:active,
-.main-navigation ul li a:focus {
-	color: <?php echo $umbra_scheme['nav_text_color']; ?>;
-	background-color: <?php echo $umbra_scheme['nav_current_bg_color']; ?>;
+.main-navigation ul li a:focus,
+.main-navigation ul .current_page_item a,
+.main-navigation ul .current_page_item a {
+	color: <?php echo $umbra_scheme['nav-text-color']; ?>
+	background-color: <?php echo $umbra_scheme['nav-current-bg-color']; ?>
 }
-.site-header-bg {
+
+.entry-title,
+.entry-title a {
+	color: <?php echo $umbra_scheme['header-color']; ?>;
+}
+
+.entry-meta {
+	color: <?php echo $umbra_scheme['alt-color']; ?>;
+}
+
+.entry-meta a {
+	color: <?php echo $umbra_scheme['highlight-color']; ?>;
+}
+
+.entry-meta a.genericon-comment {
+	color: <?php echo $umbra_scheme['highlight-color']; ?>;
+}
+
+.entry-meta .genericon {
 	background-color: <?php echo $umbra_scheme['sidebar_bg_color']; ?>;
 }
+
 </style>
