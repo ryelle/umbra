@@ -1,0 +1,92 @@
+// Base color scheme
+$body-background: #f9f9f9;
+$text-color: #424046;
+$header-color: #6b6479; // saturate(lighten(#6b6479, 50), 50)
+$highlight-color: #e0bc64;
+$alt-color: #b5b1bd;
+
+$sidebar-bg-color: #424046;
+$main-bg-color: white;
+
+// Main menu colors
+$nav-text-color: #e9e3f4;
+$nav-bg-color: #333038;
+$nav-current-bg-color: #221f26;
+
+// Use the color scheme colors to create element-specific styles
+$link-color: $alt-color;
+
+
+body {
+	background: $body-background;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+	color: $text-color;
+}
+
+a {
+	color: $link-color;
+	@include hoverActiveFocus {
+		color: darken($link-color, 30%);
+	}
+}
+
+
+.site-content {
+	background-color: $main-bg-color;
+}
+
+.site-header-bg {
+	background-color: $sidebar-bg-color;
+}
+
+.main-navigation {
+	ul {
+		li a {
+			color: $nav-text-color;
+			background-color: $nav-bg-color;
+
+			@include hoverActiveFocus {
+				color: $nav-text-color;
+				background-color: $nav-current-bg-color;
+			}
+		}
+
+		.current_page_item,
+		.current-menu-item {
+			a {
+				background-color: $nav-current-bg-color;
+			}
+		}
+	}
+}
+
+.entry-title,
+.entry-title a {
+	color: $header-color;
+}
+
+.entry-meta {
+	color: $alt-color;
+
+	a {
+		color: $highlight-color;
+	}
+
+	.genericon {
+		color: $header-color;
+		background-color: $header-color;
+
+		&.genericon-comment {
+			color: $highlight-color;
+			background-color: $highlight-color;
+		}
+	}
+
+}
+
