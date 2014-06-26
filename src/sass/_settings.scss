@@ -23,6 +23,7 @@ $bold: 700;
 $body-background: #f9f9f9;
 $text-color: #424046;
 $header-color: #6b6479; // saturate(lighten(#6b6479, 50), 50)
+$description-color: #8f8a99;
 $highlight-color: #e0bc64;
 $alt-color: #b5b1bd;
 
@@ -36,7 +37,6 @@ $nav-current-bg-color: #221f26;
 
 // Use the color scheme colors to create element-specific styles
 $link-color: $alt-color;
-$link-visited: $alt-color;
 
 // Layout values
 $site-width: 860px;
