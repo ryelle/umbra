@@ -27,7 +27,11 @@ class Umbra_ImageColors {
 
 	public function print_css(){
 		// Check cache, then generate as needed
-		echo $this->generate_css();
+		$css = $this->generate_css();
+		// var_dump($css);
+		if ( $css ) {
+			printf( '<style>%s</style>', $css );
+		}
 	}
 
 	public function generate_css( $image_id = false ) {
@@ -39,7 +43,7 @@ class Umbra_ImageColors {
 		if ( ! class_exists( 'Jetpack_Custom_CSS' ) ) {
 			require Jetpack::get_module_path( 'custom-css' );
 		}
-		$sass = '$base-color: '. $color .';';
+		$sass = '$base-color: #'. $color .';';
 		$sass .= file_get_contents( get_template_directory() . '/sass/_dynamic-colors.scss' );
 		$css = Jetpack_Custom_CSS::minify( $sass, 'sass' );
 
