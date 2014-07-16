@@ -34,6 +34,9 @@ hr {
 }
 
 /* Text elements */
+* {
+	word-wrap: break-word;
+}
 p {
 	margin-bottom: $spacing;
 }
