@@ -21,7 +21,6 @@ $main-bg-color: white;
 
 	$sidebar-bg-color: $base-color;
 	$site-title-color: saturate( lighten( $base-color, 30% ), 10% );
-	//$description-color: hsl( hue($base-color), saturation(#8f8a99), lightness(#8f8a99) );
 	$description-color: lighten( $sidebar-bg-color, 20% );
 
 }
