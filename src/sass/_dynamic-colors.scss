@@ -16,12 +16,21 @@ $main-bg-color: white;
 	$sidebar-bg-color: darken( desaturate( $base-color, 10% ), 10% );
 	$site-title-color: desaturate( darken( $base-color, 30% ), 20% );
 	$description-color: lighten( $sidebar-bg-color, 20% );
+	$comment-text: darken( $description-color, 15% );
+
+	@if ( lightness( $description-color ) > 75 ){
+		$comment-header-bg: saturate( lighten( $description-color, 10% ), 30% );
+	} @else {
+		$comment-header-bg: saturate( lighten( $description-color, 20% ), 20% );
+	}
 
 } @else {
 
 	$sidebar-bg-color: $base-color;
 	$site-title-color: saturate( lighten( $base-color, 30% ), 10% );
 	$description-color: lighten( $sidebar-bg-color, 20% );
+	$comment-header-bg: lighten( $description-color, 25% );
+	$comment-text: $description-color;
 
 }
 
@@ -133,3 +142,28 @@ a {
 
 }
 
+
+.comment-meta {
+	background: $comment-header-bg;
+
+	.avatar {
+		border-color: white !important;
+	}
+
+	.comment-author {
+		&, a, a:hover, a:active, a:focus {
+			color: $header-color;
+		}
+	}
+
+	.comment-metadata {
+		&, a, a:hover, a:active, a:focus {
+			color: $comment-text;
+		}
+	}
+}
+.reply {
+	a, a:hover, a:active, a:focus {
+		color: $header-color;
+	}
+}

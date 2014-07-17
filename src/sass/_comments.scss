@@ -1,4 +1,100 @@
 /* =Comments
 ----------------------------------------------- */
 
+$comment-spacing: $alt-spacing/2;
+
 .bypostauthor {}
+
+.comments-title {
+	margin: $alt-spacing 0;
+}
+
+.replies-title {
+	margin: $spacing 0;
+}
+
+.comment-list,
+.comment-list .children {
+	margin: 0;
+	list-style: none;
+}
+
+.comment-body {
+	position: relative;
+}
+
+.comment-meta {
+	margin: $comment-spacing 0;
+	padding: $comment-spacing $comment-spacing 0;
+	min-height: 56px;
+	background: $comment-header-bg;
+	line-height: 1;
+
+	.avatar {
+		float: left;
+		box-sizing: content-box;
+		margin: (-$comment-spacing) ($comment-spacing) 0 (-$comment-spacing);
+		border-right: $comment-spacing solid white;
+	}
+
+	.comment-author {
+		font-family: $header-font;
+		@include font-size( 16 );
+
+		&, a, a:hover, a:active, a:focus {
+			color: $header-color;
+		}
+
+		.says {
+			display: none;
+		}
+	}
+
+	.comment-metadata {
+		margin-top: 5px;
+		font-family: $alt-font;
+		@include font-size( 10 );
+		text-transform: uppercase;
+
+		&, a, a:hover, a:active, a:focus {
+			color: $description-color;
+		}
+	}
+}
+
+.comment-content {
+	margin-left: 56 + $comment-spacing;
+
+	p {
+		margin-bottom: $comment-spacing;
+	}
+}
+
+.reply {
+	position: absolute;
+	top: $comment-spacing;
+	right: $comment-spacing;
+	font-family: $alt-font;
+	@include font-size( 10 );
+	text-transform: uppercase;
+	line-height: 26px;
+	font-weight: bold;
+
+	a, a:hover, a:active, a:focus {
+		color: $header-color;
+	}
+}
+
+.children {
+	@for $i from 2 through 10 {
+		.depth-#{$i} {
+			.avatar {
+				margin-left: $comment-spacing * ( $i - 2 );
+				border-left: $comment-spacing solid white;
+			}
+			.comment-content {
+				margin-left: 56 + $comment-spacing * 2 + $comment-spacing * ( $i - 1);
+			}
+		}
+	}
+}
