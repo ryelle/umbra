@@ -1,0 +1,169 @@
+// Base color scheme
+
+// Use sassme to grab the current hsl of these vars, then adjust with the hue of the current color? adjust hue for alt
+
+$body-background: hsl( hue($base-color), saturation(#f9f9f9), lightness(#f9f9f9) );
+$text-color: hsl( hue($base-color), saturation(#424046), lightness(#424046) );
+
+$header-color: hsl( hue($base-color), saturation(#6b6479), lightness(#6b6479) );
+$highlight-color: desaturate( hsl( hue($base-color), saturation(#e0bc64), lightness(#e0bc64) ), 20% );
+$alt-color: hsl( hue($base-color), saturation(#b5b1bd), lightness(#b5b1bd) );
+
+$main-bg-color: white;
+
+@if ( lightness( $base-color ) > 50 ){
+
+	$sidebar-bg-color: darken( desaturate( $base-color, 10% ), 10% );
+	$site-title-color: desaturate( darken( $base-color, 30% ), 20% );
+	$description-color: lighten( $sidebar-bg-color, 20% );
+	$comment-text: darken( $description-color, 15% );
+
+	@if ( lightness( $description-color ) > 75 ){
+		$comment-header-bg: saturate( lighten( $description-color, 10% ), 30% );
+	} @else {
+		$comment-header-bg: saturate( lighten( $description-color, 20% ), 20% );
+	}
+
+} @else {
+
+	$sidebar-bg-color: $base-color;
+	$site-title-color: saturate( lighten( $base-color, 30% ), 10% );
+	$description-color: lighten( $sidebar-bg-color, 20% );
+	$comment-header-bg: lighten( $description-color, 25% );
+	$comment-text: $description-color;
+
+}
+
+// If no hue, let's not give these colors hue
+@if ( hue( $base-color ) < 5 ) {
+
+	$saturation: 0;
+	$nav-text-color: hsl( hue($base-color), $saturation, lightness(#e9e3f4) );
+	$nav-bg-color: darken( $sidebar-bg-color, 10% );
+	$nav-current-bg-color: darken( $sidebar-bg-color, 15% );
+
+} @else {
+
+	// Main menu colors
+	$saturation: saturation( #e9e3f4 );
+	$nav-text-color: hsl( hue($base-color), $saturation, lightness(#e9e3f4) );
+	$nav-bg-color: darken( $sidebar-bg-color, 10% );
+	$nav-current-bg-color: darken( $sidebar-bg-color, 15% );
+
+}
+
+// Use the color scheme colors to create element-specific styles
+$link-color: $alt-color;
+
+@mixin hoverActiveFocus() {
+	&:hover, &:active, &:focus {
+		@content;
+	}
+}
+
+body {
+	background: $body-background;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+	color: $text-color;
+}
+
+a {
+	color: $link-color;
+	@include hoverActiveFocus {
+		color: darken($link-color, 30%);
+	}
+}
+
+
+.site-content {
+	background-color: $main-bg-color;
+}
+
+.site-header-bg {
+	background-color: $sidebar-bg-color;
+}
+
+.site-title a {
+	color: $site-title-color;
+}
+
+.site-description {
+	color: $description-color;
+}
+
+.main-navigation {
+	ul {
+		li a {
+			color: $nav-text-color;
+			background-color: $nav-bg-color;
+
+			@include hoverActiveFocus {
+				color: $nav-text-color;
+				background-color: $nav-current-bg-color;
+			}
+		}
+
+		.current_page_item,
+		.current-menu-item {
+			a {
+				background-color: $nav-current-bg-color;
+			}
+		}
+	}
+}
+
+.entry-title,
+.entry-title a {
+	color: $header-color;
+}
+
+.entry-meta {
+	color: $alt-color;
+
+	a {
+		color: $highlight-color;
+	}
+
+	.genericon {
+		color: $header-color;
+		background-color: $header-color;
+
+		&.genericon-comment {
+			color: $highlight-color;
+			background-color: $highlight-color;
+		}
+	}
+
+}
+
+
+.comment-meta {
+	background: $comment-header-bg;
+
+	.avatar {
+		border-color: white !important;
+	}
+
+	.comment-author {
+		&, a, a:hover, a:active, a:focus {
+			color: $header-color;
+		}
+	}
+
+	.comment-metadata {
+		&, a, a:hover, a:active, a:focus {
+			color: $comment-text;
+		}
+	}
+}
+.reply {
+	a, a:hover, a:active, a:focus {
+		color: $header-color;
+	}
+}
