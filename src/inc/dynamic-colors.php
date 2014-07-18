@@ -44,7 +44,7 @@ class Umbra_ImageColors {
 			require Jetpack::get_module_path( 'custom-css' );
 		}
 		$sass = '$base-color: #'. $color .';';
-		$sass .= file_get_contents( get_template_directory() . '/sass/_dynamic-colors.scss' );
+		$sass .= file_get_contents( get_template_directory() . '/inc/dynamic-colors.scss' );
 		$css = Jetpack_Custom_CSS::minify( $sass, 'sass' );
 
 		return $css;
