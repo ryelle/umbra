@@ -85,16 +85,77 @@ $comment-spacing: $alt-spacing/2;
 	}
 }
 
+.children .avatar {
+	border-left: $comment-spacing solid white;
+}
+
 .children {
 	@for $i from 2 through 10 {
 		.depth-#{$i} {
 			.avatar {
 				margin-left: $comment-spacing * ( $i - 2 );
-				border-left: $comment-spacing solid white;
 			}
 			.comment-content {
 				margin-left: 56 + $comment-spacing * 2 + $comment-spacing * ( $i - 1);
 			}
 		}
 	}
+}
+
+.comment-form {
+	label {
+		@include screen-reader-text;
+	}
+
+	input, textarea {
+		font-family: $alt-font;
+		color: $alt-color;
+		@include font-size( $alt-size );
+		box-sizing: border-box;
+		border: 1px solid $comment-box-border; // @color
+	}
+
+	input[type="text"],
+	input[type="email"] {
+		padding: 3px 30px;
+		text-transform: uppercase;
+		line-height: 40px;
+		width: 100%;
+	}
+
+	textarea {
+		width: 100%;
+		padding: 30px;
+		resize: vertical;
+	}
+
+	// .logged-in-as {
+	// 	@include font-size( $modular-scale-base );
+	// }
+
+	.form-submit {
+		@extend %clearfix;
+
+		input[type="submit"] {
+			float: right;
+		}
+	}
+}
+
+.comment-form-author,
+.comment-form-email {
+	float: left;
+	width: 50%;
+}
+
+.comment-form-author {
+	padding-right: 15px;
+}
+
+.comment-form-email {
+	padding-left: 15px;
+}
+
+.comment-awaiting-moderation {
+	font-style: italic;
 }
