@@ -15,5 +15,35 @@
 		text-align: right;
 		width: 50%;
 	}
+}
 
+.post-navigation,
+.comment-navigation {
+	font-family: $alt-font;
+	@include font-size(14);
+
+	.nav-next {
+		padding-left: 5px;
+	}
+
+	.nav-previous {
+		padding-right: 5px;
+	}
+
+	a {
+		display: inline-block;
+		padding: $alt-spacing/2;
+		color: white; // @color
+		background: $highlight-color; // @color
+		text-transform: uppercase;
+
+		&:hover, &:active, &:focus {
+			text-decoration: none;
+			background: darken( $highlight-color, 15% ); // @color
+		}
+	}
+}
+
+.site-main .post-navigation {
+	margin-top: 4 * $alt-spacing;
 }
