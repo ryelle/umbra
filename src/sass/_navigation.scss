@@ -40,6 +40,7 @@
 		&:hover, &:active, &:focus {
 			text-decoration: none;
 			background: darken( $highlight-color, 15% ); // @color
+			color: white;
 		}
 	}
 }
