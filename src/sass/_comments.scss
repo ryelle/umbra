@@ -109,7 +109,7 @@ $comment-spacing: $alt-spacing/2;
 
 	input, textarea {
 		font-family: $alt-font;
-		color: $alt-color;
+		color: darken( $alt-color, 10% ); // @color
 		@include font-size( $alt-size );
 		box-sizing: border-box;
 		border: 1px solid $comment-box-border; // @color
@@ -117,7 +117,7 @@ $comment-spacing: $alt-spacing/2;
 
 	input[type="text"],
 	input[type="email"] {
-		padding: 3px 30px;
+		padding: 3px $alt-spacing/2;
 		text-transform: uppercase;
 		line-height: 40px;
 		width: 100%;
@@ -125,19 +125,34 @@ $comment-spacing: $alt-spacing/2;
 
 	textarea {
 		width: 100%;
-		padding: 30px;
+		padding: $alt-spacing/2;
 		resize: vertical;
+		@include font-size( 16 );
+
+		&:focus {
+			color: $text-color;
+		}
 	}
 
-	// .logged-in-as {
-	// 	@include font-size( $modular-scale-base );
-	// }
+	.logged-in-as,
+	.comment-notes {
+		font-family: $alt-font;
+		text-transform: uppercase;
+		@include font-size( $alt-size );
+	}
 
 	.form-submit {
 		@extend %clearfix;
 
 		input[type="submit"] {
 			float: right;
+			padding: $alt-spacing/2 $alt-spacing;
+			border: none;
+			font-family: $alt-font;
+			@include font-size( 14 );
+			text-transform: uppercase;
+			color: white; // @color
+			background-color: $header-color; // @color
 		}
 	}
 }

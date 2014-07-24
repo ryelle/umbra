@@ -87,3 +87,27 @@ function umbra_setup_author() {
 	}
 }
 add_action( 'wp', 'umbra_setup_author' );
+
+/**
+ * Unset the website field
+ */
+function umbra_comment_fields( $fields ){
+	$commenter = wp_get_current_commenter();
+
+	unset( $fields['url'] );
+
+	$fields['author'] = sprintf(
+		'<p class="comment-form-author"><label for="author">%1$s</label> <input id="author" name="author" type="text" value="%2$s" size="30" aria-required="true" placeholder="%1$s" /></p>',
+		_x( 'Name', 'Label for commenter\'s name', 'umbra' ),
+		esc_attr( $commenter['comment_author'] )
+	);
+
+	$fields['email'] = sprintf(
+		'<p class="comment-form-email"><label for="email">%1$s</label><input id="email" name="email" type="email" value="%2$s" size="30" aria-required="true" placeholder="%1$s" /></p>',
+		 _x( 'Email', 'Label for commenter\'s email', 'umbra' ),
+		 esc_attr(  $commenter['comment_author_email'] )
+	);
+
+	return $fields;
+}
+add_filter( 'comment_form_default_fields', 'umbra_comment_fields' );
