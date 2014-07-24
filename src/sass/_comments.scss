@@ -70,6 +70,10 @@ $comment-spacing: $alt-spacing/2;
 	}
 }
 
+li.comment .comment-respond {
+	margin-left: 56 + $comment-spacing;
+}
+
 .reply {
 	position: absolute;
 	top: $comment-spacing;
@@ -98,6 +102,9 @@ $comment-spacing: $alt-spacing/2;
 			.comment-content {
 				margin-left: 56 + $comment-spacing * 2 + $comment-spacing * ( $i - 1);
 			}
+			.comment-respond {
+				margin-left: 56 + $comment-spacing * 2 + $comment-spacing * ( $i - 1);
+			}
 		}
 	}
 }
@@ -109,10 +116,10 @@ $comment-spacing: $alt-spacing/2;
 
 	input, textarea {
 		font-family: $alt-font;
-		color: darken( $alt-color, 10% ); // @color
+		color: darken( $alt-color, 10% );
 		@include font-size( $alt-size );
 		box-sizing: border-box;
-		border: 1px solid $comment-box-border; // @color
+		border: 1px solid $comment-box-border;
 	}
 
 	input[type="text"],
@@ -151,8 +158,8 @@ $comment-spacing: $alt-spacing/2;
 			font-family: $alt-font;
 			@include font-size( 14 );
 			text-transform: uppercase;
-			color: white; // @color
-			background-color: $header-color; // @color
+			color: white;
+			background-color: $header-color;
 		}
 	}
 }
