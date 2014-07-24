@@ -19,7 +19,7 @@ $main-bg-color: white;
 	$comment-text: darken( $description-color, 15% );
 
 	@if ( lightness( $description-color ) > 75 ){
-		$comment-header-bg: saturate( lighten( $description-color, 10% ), 30% );
+		$comment-header-bg: $body-background;
 	} @else {
 		$comment-header-bg: saturate( lighten( $description-color, 20% ), 20% );
 	}
@@ -55,10 +55,25 @@ $main-bg-color: white;
 // Use the color scheme colors to create element-specific styles
 $link-color: $alt-color;
 
+$comment-box-border: $comment-header-bg;
+
 @mixin hoverActiveFocus() {
 	&:hover, &:active, &:focus {
 		@content;
 	}
+}
+
+// Returns the `$light` color when the `$color` is dark
+// and the `$dark` color when the `$color` is light.
+// The `$threshold` is a percent between `0%` and `100%` and it determines
+// when the lightness of `$color` changes from "dark" to "light".
+@function contrast-color(
+	$color,
+	$dark: black,
+	$light: white,
+	$threshold: 30%
+) {
+	@return if ( lightness( $color ) < $threshold, $light, $dark )
 }
 
 body {
@@ -165,5 +180,30 @@ a {
 .reply {
 	a, a:hover, a:active, a:focus {
 		color: $header-color;
+	}
+}
+
+.comment-form {
+	input, textarea {
+		color: darken( $alt-color, 10% );
+		border: 1px solid $comment-box-border;
+	}
+
+	.form-submit input[type="submit"] {
+		color: contrast-color( $header-color );
+		background-color: $header-color;
+	}
+}
+
+.post-navigation,
+.comment-navigation {
+	a {
+		color: contrast-color( $highlight-color );
+		background: $highlight-color;
+
+		&:hover, &:active, &:focus {
+			color: contrast-color( $highlight-color );
+			background: darken( $highlight-color, 15% );
+		}
 	}
 }

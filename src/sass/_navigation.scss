@@ -33,14 +33,14 @@
 	a {
 		display: inline-block;
 		padding: $alt-spacing/2;
-		color: white; // @color
-		background: $highlight-color; // @color
+		color: white;
+		background: $highlight-color;
 		text-transform: uppercase;
 
 		&:hover, &:active, &:focus {
 			text-decoration: none;
-			background: darken( $highlight-color, 15% ); // @color
 			color: white;
+			background: darken( $highlight-color, 15% );
 		}
 	}
 }
