@@ -71,6 +71,8 @@
 }
 
 .entry-meta {
+	$title-height: -42px;
+
 	position: relative;
 	font-family: $alt-font;
 	@include font-size( $alt-size );
@@ -84,9 +86,15 @@
 		}
 	}
 
+	.entry-icons a {
+		@include hoverActiveFocus {
+			text-decoration: none;
+		}
+	}
+
 	.genericon {
 		position: absolute;
-		top: 0;
+		top: $title-height;
 		right: ( $alt-spacing*-1.5 - 20 );
 		padding: 4px;
 		height: 40px;
@@ -116,7 +124,7 @@
 		}
 
 		&.genericon-comment {
-			top: 50px;
+			top: $title-height + 50px;
 			color: $highlight-color;
 			background-color: $highlight-color;
 		}
