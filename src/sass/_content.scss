@@ -52,6 +52,17 @@
 /* =Content
 ----------------------------------------------- */
 
+.page-header {
+	margin-bottom: $alt-spacing;
+}
+
+.taxonomy-description {
+	font-family: $alt-font;
+	@include font-size( $alt-size );
+	text-transform: uppercase;
+	color: $alt-color;
+}
+
 .sticky { /*! Not used. */ }
 
 .hentry {
