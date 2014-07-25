@@ -85,3 +85,29 @@ textarea {
 	vertical-align: top; /* Improves readability and alignment in all browsers */
 	width: 98%;
 }
+
+.search-form {
+	input {
+		padding: 3px 5px;
+		border: none;
+		border-radius: 0;
+		background: $body-background;
+		font-family: $alt-font;
+		@include font-size( 14 );
+		line-height: 2;
+
+		@include hoverActiveFocus {
+			background: darken( $body-background, 10% );
+		}
+	}
+
+	.search-field {
+		box-sizing: border-box;
+		width: 69%
+	}
+	.search-submit {
+		box-sizing: border-box;
+		width: 30%;
+	}
+}
+

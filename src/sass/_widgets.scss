@@ -1,19 +1,84 @@
 /* =Widgets
 ----------------------------------------------- */
+#secondary {
+	margin-top: $spacing * 2;
+}
 
 .widget {
-	margin: 0 0 $spacing;
+	margin: 0 0 $spacing * 2;
 
 	/* Make sure select elements fit in widgets */
 	select {
 		max-width: 100%;
 	}
 
-	/* Search widget */
-	.widget-search .search-submit {
-		display: none;
+	ul {
+		margin-left: 0;
+		list-style: none;
+
+		ul {
+			margin-left: $spacing;
+		}
 	}
 
+	.widget-title a {
+		color: $text-color;
+	}
 }
 
+.widget_calendar {
+	#wp-calendar {
+		max-width: 300px;
+	}
+
+	caption, th, td {
+		padding: 5px;
+		text-align: center;
+	}
+
+	caption {
+		font-family: $header-font;
+		font-weight: bold;
+		@include font-size( 20 );
+		margin-bottom: 10px;
+	}
+
+	th {
+		font-family: $alt-font;
+		background: $body-background;
+	}
+
+	td {
+		@include font-size( 16 );
+	}
+
+	tfoot td {
+		font-family: $alt-font;
+		text-transform: uppercase;
+		@include font-size( 14 );
+		background: $highlight-color;
+
+		a {
+			color: contrast-color( $highlight-color, black, white, 75% );
+		}
+	}
+}
+
+.widget_rss {
+	li {
+		margin-bottom: 10px;
+
+		.rsswidget {
+			float: left;
+		}
+
+		.rss-date {
+			float: right;
+		}
+
+		.rssSummary {
+			clear: both;
+		}
+	}
+}
 

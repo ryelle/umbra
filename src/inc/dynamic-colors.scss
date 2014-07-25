@@ -74,7 +74,11 @@ $comment-box-border: $comment-header-bg;
 	$light: white,
 	$threshold: 30%
 ) {
-	@return if ( lightness( $color ) < $threshold, $light, $dark )
+	@if ( lightness( $color ) < $threshold ) {
+		@return $light
+	} @else {
+		@return $dark;
+	}
 }
 
 body {
@@ -141,6 +145,10 @@ a {
 	}
 }
 
+.taxonomy-description {
+	color: $alt-color;
+}
+
 .entry-title,
 .entry-title a {
 	color: $header-color;
@@ -165,6 +173,10 @@ a {
 
 }
 
+.wp-caption {
+	background: $body-background;
+	color: contrast-color( $body-background );
+}
 
 .comment-meta {
 	background: $comment-header-bg;
@@ -206,12 +218,43 @@ a {
 .post-navigation,
 .comment-navigation {
 	a {
-		color: contrast-color( $highlight-color );
+		color: contrast-color( $highlight-color, black, white, 75% );
 		background: $highlight-color;
 
 		&:hover, &:active, &:focus {
-			color: contrast-color( $highlight-color );
+			color: contrast-color( $highlight-color, black, white, 75% );
 			background: darken( $highlight-color, 15% );
 		}
 	}
 }
+
+.search-form {
+	input {
+		background: $body-background;
+
+		@include hoverActiveFocus {
+			background: darken( $body-background, 10% );
+		}
+	}
+}
+
+.widget {
+	.widget-title a {
+		color: $text-color;
+	}
+}
+
+.widget_calendar {
+	th {
+		background: $body-background;
+	}
+
+	tfoot td {
+		background: $highlight-color;
+
+		a {
+			color: contrast-color( $highlight-color, black, white, 75% );
+		}
+	}
+}
+
