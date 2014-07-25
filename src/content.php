@@ -25,7 +25,7 @@ if ( false === $format ) {
 		<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 	</header><!-- .entry-header -->
 
-	<?php if ( is_search() ) : // Only display Excerpts for Search ?>
+	<?php if ( ! is_singular() ) : ?>
 	<div class="entry-summary">
 		<?php the_excerpt(); ?>
 	</div><!-- .entry-summary -->
@@ -41,6 +41,7 @@ if ( false === $format ) {
 	</div><!-- .entry-content -->
 	<?php endif; ?>
 
+	<?php if ( is_singular() ) : ?>
 	<footer class="entry-footer">
 		<?php if ( 'post' == get_post_type() ) : // Hide category and tag text for pages on Search ?>
 			<?php
@@ -66,4 +67,5 @@ if ( false === $format ) {
 
 		<?php edit_post_link( __( 'Edit', 'umbra' ), '<span class="edit-link">', '</span>' ); ?>
 	</footer><!-- .entry-footer -->
+	<?php endif; ?>
 </article><!-- #post-## -->
