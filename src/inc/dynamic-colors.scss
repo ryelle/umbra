@@ -1,6 +1,7 @@
 // Base color scheme
 
 // Use sassme to grab the current hsl of these vars, then adjust with the hue of the current color? adjust hue for alt
+$base-color: saturate( $base-color, 5% );
 
 $body-background: hsl( hue($base-color), saturation(#f9f9f9), lightness(#f9f9f9) );
 $text-color: hsl( hue($base-color), saturation(#424046), lightness(#424046) );
@@ -110,6 +111,13 @@ a {
 
 .site-description {
 	color: $description-color;
+}
+
+.site-footer {
+	color: $description-color;
+	a {
+		color: $description-color;
+	}
 }
 
 .main-navigation {

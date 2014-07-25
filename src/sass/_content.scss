@@ -36,6 +36,18 @@
 	color: $description-color;
 }
 
+/* =Footer
+----------------------------------------------- */
+.site-footer {
+	font-family: $alt-font;
+	@include font-size( 12 );
+	color: $description-color;
+	text-align: center;
+
+	p {
+		margin-bottom: 10px;
+	}
+}
 
 /* =Content
 ----------------------------------------------- */
@@ -43,7 +55,7 @@
 .sticky { /*! Not used. */ }
 
 .hentry {
-	margin: 0 0 $spacing;
+	margin: 0 0 $alt-spacing * 2;
 }
 
 .byline,
