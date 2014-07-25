@@ -14,7 +14,6 @@
 	}
 }
 
-
 @mixin font-size( $size-value ) {
 	$rem-value: ( $size-value / 16 );
 	$px-value: $size-value;
@@ -50,3 +49,15 @@
 	}
 }
 
+// Returns the `$light` color when the `$color` is dark
+// and the `$dark` color when the `$color` is light.
+// The `$threshold` is a percent between `0%` and `100%` and it determines
+// when the lightness of `$color` changes from "dark" to "light".
+@function contrast-color(
+	$color,
+	$dark: black,
+	$light: white,
+	$threshold: 30%
+) {
+	@return if ( lightness( $color ) < $threshold, $light, $dark )
+}
