@@ -20,22 +20,7 @@ input[type="submit"] {
 	line-height: 1;
 	padding: .6em 1em .4em;
 }
-button:hover,
-input[type="button"]:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover {
-	background: darken( #e6e6e6, 15% );
-}
-button:focus,
-input[type="button"]:focus,
-input[type="reset"]:focus,
-input[type="submit"]:focus,
-button:active,
-input[type="button"]:active,
-input[type="reset"]:active,
-input[type="submit"]:active {
-	background: darken( #e6e6e6, 15% );
-}
+
 input[type="checkbox"],
 input[type="radio"] {
 	padding: 0; /* Addresses excess padding in IE8/9 */
@@ -54,31 +39,31 @@ input::-moz-focus-inner { /* Corrects inner padding and border displayed oddly i
 	border: 0;
 	padding: 0;
 }
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
 input[type="text"],
 input[type="email"],
 input[type="url"],
 input[type="password"],
 input[type="search"],
 textarea {
-	color: #666;
-	border: 1px solid #ccc;
-	border-radius: 3px;
+	padding: 3px 5px;
+	border: none;
+	border-radius: 0;
+	background: $body-background;
+	font-family: $alt-font;
+	@include font-size( 14 );
+	line-height: 2;
+
+	&:hover, &:focus {
+		background: darken( $body-background, 10% );
+		outline-color: darken( $body-background, 20% );
+	}
 }
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="url"]:focus,
-input[type="password"]:focus,
-input[type="search"]:focus,
-textarea:focus {
-	color: $text-color;
-}
-input[type="text"],
-input[type="email"],
-input[type="url"],
-input[type="password"],
-input[type="search"] {
-	padding: 3px;
-}
+
 textarea {
 	overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
 	padding-left: 3px;
@@ -86,21 +71,10 @@ textarea {
 	width: 98%;
 }
 
+/* =Search Form
+----------------------------------------------- */
+
 .search-form {
-	input {
-		padding: 3px 5px;
-		border: none;
-		border-radius: 0;
-		background: $body-background;
-		font-family: $alt-font;
-		@include font-size( 14 );
-		line-height: 2;
-
-		@include hoverActiveFocus {
-			background: darken( $body-background, 10% );
-		}
-	}
-
 	.search-field {
 		box-sizing: border-box;
 		width: 69%
@@ -111,3 +85,11 @@ textarea {
 	}
 }
 
+/* =Password Protected Form
+----------------------------------------------- */
+
+.post-password-form {
+	input[type='submit'] {
+		padding: 3px $spacing;
+	}
+}
