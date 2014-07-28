@@ -67,6 +67,7 @@
 
 .hentry {
 	margin: 0 0 $alt-spacing * 2;
+	position: relative;
 }
 
 .byline,
@@ -82,9 +83,6 @@
 }
 
 .entry-meta {
-	$title-height: -42px;
-
-	position: relative;
 	font-family: $alt-font;
 	@include font-size( $alt-size );
 	text-transform: uppercase;
@@ -105,7 +103,7 @@
 
 	.genericon {
 		position: absolute;
-		top: $title-height;
+		top: 0;
 		right: ( $alt-spacing*-1.5 - 20 );
 		padding: 4px;
 		height: 40px;
@@ -135,7 +133,7 @@
 		}
 
 		&.genericon-comment {
-			top: $title-height + 50px;
+			top: 50px;
 			color: $highlight-color;
 			background-color: $highlight-color;
 		}
