@@ -1,4 +1,4 @@
-/* =Comments
+/* =Comments Section
 ----------------------------------------------- */
 
 $comment-spacing: $alt-spacing/2;
@@ -12,6 +12,9 @@ $comment-spacing: $alt-spacing/2;
 .replies-title {
 	margin: $spacing 0;
 }
+
+/* =Comments
+----------------------------------------------- */
 
 .comment-list,
 .comment-list .children {
@@ -109,6 +112,19 @@ li.comment .comment-respond {
 	}
 }
 
+/* =Pingbacks
+----------------------------------------------- */
+li.pingback {
+	margin: $comment-spacing 0;
+}
+
+li.pingback + li.comment .comment-meta {
+	margin-top: $comment-spacing + 5;
+}
+
+/* =Reply Form
+----------------------------------------------- */
+
 .comment-form {
 	label {
 		@include screen-reader-text;
@@ -179,5 +195,14 @@ li.comment .comment-respond {
 }
 
 .comment-awaiting-moderation {
+	font-style: italic;
+}
+
+/* ="Comments Closed" text
+----------------------------------------------- */
+
+.no-comments {
+	margin: $spacing 0;
+	text-align: center;
 	font-style: italic;
 }
