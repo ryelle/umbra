@@ -57,7 +57,7 @@
 	$color,
 	$dark: black,
 	$light: white,
-	$threshold: 30%
+	$threshold: 75%
 ) {
 	@if ( lightness( $color ) < $threshold ) {
 		@return $light

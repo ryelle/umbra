@@ -72,7 +72,7 @@ $comment-box-border: $comment-header-bg;
 	$color,
 	$dark: black,
 	$light: white,
-	$threshold: 30%
+	$threshold: 75%
 ) {
 	@if ( lightness( $color ) < $threshold ) {
 		@return $light
@@ -91,6 +91,16 @@ input,
 select,
 textarea {
 	color: $text-color;
+}
+
+input, textarea {
+	color: darken( $alt-color, 10% );
+	border: 1px solid $comment-box-border;
+
+	&:hover, &:focus {
+		background: darken( $body-background, 10% );
+		outline-color: darken( $body-background, 20% );
+	}
 }
 
 a {
@@ -204,11 +214,6 @@ a {
 }
 
 .comment-form {
-	input, textarea {
-		color: darken( $alt-color, 10% );
-		border: 1px solid $comment-box-border;
-	}
-
 	.form-submit input[type="submit"] {
 		color: contrast-color( $header-color );
 		background-color: $header-color;
@@ -218,11 +223,11 @@ a {
 .post-navigation,
 .comment-navigation {
 	a {
-		color: contrast-color( $highlight-color, black, white, 75% );
+		color: contrast-color( $highlight-color );
 		background: $highlight-color;
 
 		&:hover, &:active, &:focus {
-			color: contrast-color( $highlight-color, black, white, 75% );
+			color: contrast-color( $highlight-color );
 			background: darken( $highlight-color, 15% );
 		}
 	}
@@ -253,7 +258,7 @@ a {
 		background: $highlight-color;
 
 		a {
-			color: contrast-color( $highlight-color, black, white, 75% );
+			color: contrast-color( $highlight-color );
 		}
 	}
 }

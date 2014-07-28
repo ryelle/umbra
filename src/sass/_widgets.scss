@@ -59,7 +59,7 @@
 		background: $highlight-color;
 
 		a {
-			color: contrast-color( $highlight-color, black, white, 75% );
+			color: contrast-color( $highlight-color );
 		}
 	}
 }
