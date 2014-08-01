@@ -7,14 +7,13 @@
 
 class Umbra_ImageColors {
 
-	private $white;
-	private $black;
+	private $cache_prefix = 'umbra_css_';
 
 	function __construct() {
 		add_action( 'wp_head', array( $this, 'wp_head' ) );
 	}
 
-	function wp_head() {
+	public function wp_head() {
 		if ( ! class_exists( 'Jetpack' ) || ! current_theme_supports( 'tonesque' ) ) {
 			return;
 		}
@@ -26,9 +25,14 @@ class Umbra_ImageColors {
 	}
 
 	public function print_css(){
-		// Check cache, then generate as needed
-		$css = $this->generate_css();
-		// var_dump($css);
+		$image_id = get_post_thumbnail_id();
+		$css = get_transient( $this->cache_prefix . $image_id );
+
+		if ( empty( $css ) ) {
+			$css = $this->generate_css();
+			set_transient( $this->cache_prefix . $image_id, $css );
+		}
+
 		if ( $css ) {
 			printf( '<style>%s</style>', $css );
 		}
