@@ -14,6 +14,28 @@ function umbra_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+
+	$wp_customize->add_setting( 'umbra_use_tonesque', array(
+		'default' => true
+	) );
+
+	$wp_customize->add_control( 'umbra_use_tonesque', array(
+		'label'      => __( 'Pull page colors from the featured image' ),
+		'section'    => 'colors',
+		'type'       => 'checkbox',
+	) );
+
+	$wp_customize->add_setting( 'umbra_base_color', array(
+		'default' => '111',
+		'sanitize_callback' => 'sanitize_hex_color_no_hash',
+		'sanitize_js_callback' => 'maybe_hash_hex_color',
+		'transport' => 'postMessage',
+	) );
+
+	$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'umbra_base_color', array(
+		'label'   => __( 'Default Colors', 'umbra' ),
+		'section' => 'colors',
+	) ) );
 }
 add_action( 'customize_register', 'umbra_customize_register' );
 
@@ -24,3 +46,6 @@ function umbra_customize_preview_js() {
 	wp_enqueue_script( 'umbra_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20130508', true );
 }
 add_action( 'customize_preview_init', 'umbra_customize_preview_js' );
+
+
+
