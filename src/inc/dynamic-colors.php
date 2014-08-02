@@ -30,41 +30,34 @@ class Umbra_ImageColors {
 		if ( ! class_exists( 'Jetpack' ) || ! current_theme_supports( 'tonesque' ) ) {
 			return;
 		}
+
 		if ( ! is_singular() || ! has_post_thumbnail() ) {
+			$color = get_theme_mod( 'umbra_base_color', false );
+			if ( $color ) {
+				$this->print_css( $color );
+			}
 			return;
 		}
 
-		$this->print_css();
+		$can_tonesque = get_theme_mod( 'umbra_use_tonesque', true );
+		if ( $can_tonesque ){
+			$this->print_css();
+		}
 	}
 
-	public function print_css(){
-		$image_id = get_post_thumbnail_id();
-		$css = get_transient( $this->cache_prefix . $image_id );
+	public function print_css( $color = false ){
+		if ( ! $color ){
+			$image_id = get_post_thumbnail_id();
+			$color = $this->get_base_color( $image_id );
+		}
 
-		if ( empty( $css ) ) {
-			$css = $this->generate_css();
-			set_transient( $this->cache_prefix . $image_id, $css );
+		if ( $color ) {
+			$css = $this->generate_css( $color );
 		}
 
 		if ( $css ) {
-			printf( '<style>%s</style>', $css );
+			printf( '<style id="umbra-css">%s</style>', $css );
 		}
-	}
-
-	public function generate_css( $image_id = false ) {
-		if ( ! $image_id ) {
-			$image_id = get_post_thumbnail_id();
-		}
-		$color = $this->get_base_color( $image_id );
-
-		if ( ! class_exists( 'Jetpack_Custom_CSS' ) ) {
-			require Jetpack::get_module_path( 'custom-css' );
-		}
-		$sass = '$base-color: #'. $color .';';
-		$sass .= file_get_contents( get_template_directory() . '/inc/dynamic-colors.scss' );
-		$css = Jetpack_Custom_CSS::minify( $sass, 'sass' );
-
-		return $css;
 	}
 
 	public function ajax_css(){
@@ -78,22 +71,22 @@ class Umbra_ImageColors {
 			return;
 		}
 
-		// Cached under `umbra_css_color_123456`
-		$css = get_transient( $this->cache_prefix . 'color_' . $color );
-		if ( empty( $css ) ) {
-			if ( ! class_exists( 'Jetpack_Custom_CSS' ) ) {
-				require Jetpack::get_module_path( 'custom-css' );
-			}
-			$sass = '$base-color: #'. $color .';';
-			$sass .= file_get_contents( get_template_directory() . '/inc/dynamic-colors.scss' );
-			$css = Jetpack_Custom_CSS::minify( $sass, 'sass' );
+		$css = $this->generate_css( $color );
 
-			set_transient( $this->cache_prefix . 'color_' . $color, $css );
-		}
-
-		//
+		header("Content-type: text/css; charset: UTF-8");
 		echo $css;
 		die();
+	}
+
+	public function generate_css( $color ) {
+		if ( ! class_exists( 'Jetpack_Custom_CSS' ) ) {
+			require Jetpack::get_module_path( 'custom-css' );
+		}
+		$sass = '$base-color: #'. $color .';';
+		$sass .= file_get_contents( get_template_directory() . '/inc/dynamic-colors.scss' );
+		$css = Jetpack_Custom_CSS::minify( $sass, 'sass' );
+
+		return $css;
 	}
 
 	public function get_base_color( $image_id ){
