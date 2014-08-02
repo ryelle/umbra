@@ -7,7 +7,7 @@ $body-background: hsl( hue($base-color), saturation(#f9f9f9), lightness(#f9f9f9)
 $text-color: hsl( hue($base-color), saturation(#424046), lightness(#424046) );
 
 $header-color: hsl( hue($base-color), saturation(#6b6479), lightness(#6b6479) );
-$highlight-color: desaturate( hsl( hue($base-color), saturation(#e0bc64), lightness(#e0bc64) ), 20% );
+$highlight-color: desaturate( hsl( hue($base-color) + 150, saturation(#e0bc64), lightness(#e0bc64) ), 20% );
 $alt-color: hsl( hue($base-color), saturation(#b5b1bd), lightness(#b5b1bd) );
 
 $main-bg-color: white;
