@@ -100,7 +100,7 @@ add_action( 'wp_enqueue_scripts', 'umbra_scripts' );
 /**
  * Returns the Google font stylesheet URL, if available.
  *
- * The use of Vollkorn, Fenix and Montserrat by default is
+ * The use of Vollkorn, Neuton and Montserrat by default is
  * localized. For languages that use characters not supported by either
  * font, the font can be disabled.
  *
@@ -118,10 +118,10 @@ function umbra_fonts_url() {
 	$vollkorn = _x( 'on', 'Vollkorn font: on or off', 'umbra' );
 
 	/* Translators: If there are characters in your language that are not
-	 * supported by Fenix, translate this to 'off'. Do not translate into
+	 * supported by Neuton, translate this to 'off'. Do not translate into
 	 * your own language.
 	 */
-	$fenix = _x( 'on', 'Fenix font: on or off', 'umbra' );
+	$neuton = _x( 'on', 'Neuton font: on or off', 'umbra' );
 
 	/* Translators: If there are characters in your language that are not
 	 * supported by Montserrat, translate this to 'off'. Do not translate
@@ -129,14 +129,14 @@ function umbra_fonts_url() {
 	 */
 	$montserrat = _x( 'on', 'Montserrat font: on or off', 'umbra' );
 
-	if ( 'off' !== $vollkorn || 'off' !== $fenix || 'off' !== $montserrat ) {
+	if ( 'off' !== $vollkorn || 'off' !== $neuton || 'off' !== $montserrat ) {
 		$font_families = array();
 
 		if ( 'off' !== $vollkorn )
 			$font_families[] = 'Vollkorn:700,700italic';
 
-		if ( 'off' !== $fenix )
-			$font_families[] = 'Fenix:400';
+		if ( 'off' !== $neuton )
+			$font_families[] = 'Neuton:400,700,400italic';
 
 		if ( 'off' !== $montserrat )
 			$font_families[] = 'Montserrat:400,700';
