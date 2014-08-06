@@ -31,8 +31,9 @@ class Umbra_ImageColors {
 			return;
 		}
 
+		$color = get_theme_mod( 'umbra_base_color', false );
+
 		if ( ! is_singular() || ! has_post_thumbnail() ) {
-			$color = get_theme_mod( 'umbra_base_color', false );
 			if ( $color ) {
 				$this->print_css( $color );
 			}
@@ -42,6 +43,8 @@ class Umbra_ImageColors {
 		$can_tonesque = get_theme_mod( 'umbra_use_tonesque', true );
 		if ( $can_tonesque ){
 			$this->print_css();
+		} elseif ( $color ) {
+			$this->print_css( $color );
 		}
 	}
 
