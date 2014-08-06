@@ -146,11 +146,14 @@ a {
 			}
 		}
 
-		.current_page_item,
-		.current-menu-item {
-			a {
-				background-color: $nav-current-bg-color;
-			}
+		.current_page_item > a,
+		.current-menu-item > a {
+			background-color: $nav-current-bg-color;
+		}
+
+		// second level
+		ul a {
+			background-color: lighten( $nav-bg-color, 4% );
 		}
 	}
 }

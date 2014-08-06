@@ -18,10 +18,10 @@
 		padding-left: 0;
 
 		li {
+			margin-bottom: 5px;
 
 			a {
 				display: block;
-				margin-bottom: 5px;
 				padding: $alt-spacing/2;
 				text-decoration: none;
 				color: $nav-text-color;
@@ -34,16 +34,20 @@
 			}
 		}
 
-		.current_page_item,
-		.current-menu-item {
-			a {
-				background-color: $nav-current-bg-color;
-			}
+		.current_page_item > a,
+		.current-menu-item > a {
+			background-color: $nav-current-bg-color;
 		}
 
 		// second level
 		ul {
-			// Spacing?
+			li {
+				margin-bottom: 0;
+			}
+
+			a {
+				background-color: lighten( $nav-bg-color, 4% );
+			}
 		}
 	}
 
