@@ -16,23 +16,26 @@ $main-bg-color: white;
 
 	$sidebar-bg-color: darken( desaturate( $base-color, 10% ), 10% );
 	$site-title-color: desaturate( darken( $base-color, 30% ), 20% );
-	$description-color: lighten( $sidebar-bg-color, 20% );
-	$comment-text: darken( $description-color, 15% );
-
-	@if ( lightness( $description-color ) > 75 ){
-		$comment-header-bg: $body-background;
-	} @else {
-		$comment-header-bg: saturate( lighten( $description-color, 20% ), 20% );
-	}
+	$description-color: lighten( $sidebar-bg-color, 30% );
 
 } @else {
 
 	$sidebar-bg-color: $base-color;
 	$site-title-color: saturate( lighten( $base-color, 30% ), 10% );
-	$description-color: lighten( $sidebar-bg-color, 20% );
-	$comment-header-bg: lighten( $description-color, 25% );
-	$comment-text: $description-color;
+	$description-color: lighten( $sidebar-bg-color, 30% );
 
+}
+
+@if ( lightness( $description-color ) > 75 ){
+	$comment-header-bg: $body-background;
+} @else {
+	$comment-header-bg: saturate( lighten( $description-color, 20% ), 20% );
+}
+
+@if ( saturation( $comment-header-bg ) > 50 ){
+	$comment-text: darken( $description-color, 25% );
+} @else {
+	$comment-text: darken( $comment-header-bg, 25% );
 }
 
 // If no hue, let's not give these colors hue
