@@ -1,0 +1,78 @@
+@media (max-width: 600px) {}
+
+@media (max-width: 600px) {
+	.menu-toggle {
+		display: block;
+	}
+
+	.no-image .site-main {
+		padding-top: $alt-spacing * 2 + 20;
+	}
+
+	#masthead,
+	.site-content .site-header-bg {
+		z-index: 10; /* Make sure the z-index is lower than the #page */
+	}
+
+	#content {
+		position: relative;
+		left: -240px;
+		width: calc(100% + 240px);
+
+		#primary {
+			margin: 0 0 0 -260px;
+		}
+
+		.site-main {
+			margin: 0 0 0 260px;
+		}
+	}
+
+	#content,
+	.menu-toggle {
+		/***
+		 * If the animating class is present then apply
+		 * the CSS transition to #page over 250ms.
+		 */
+		.animating & {
+			transition: transform .25s ease-in-out;
+			-webkit-transition: -webkit-transform .25s ease-in-out;
+		}
+
+		/***
+		 * If the left class is present then transform
+		 * the #page element 240px to the left.
+		 */
+		.animating.left & {
+			transform: translate3d( 240px, 0, 0 );
+			-webkit-transform: translate3d( 240px, 0, 0 );
+		}
+
+		/***
+		 * If the right class is present then transform
+		 * the #page element 240px to the right.
+		 */
+		.animating.right & {
+			transform: translate3d( -240px, 0, 0 );
+			-webkit-transform: translate3d( -240px, 0, 0 );
+		}
+	}
+
+	/***
+	 * If the menu-visible class is present then
+	 * shift the #page 240px from the right edge
+	 * via position: absolute to keep it in the
+	 * open position. When .animating, .left and
+	 * .right classes are not present the CSS
+	 * transform does not apply to #page.
+	 */
+	.menu-visible {
+		#content {
+			left: 0;
+		}
+		.menu-toggle {
+			left: 240px;
+		}
+	}
+
+}

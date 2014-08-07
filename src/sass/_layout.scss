@@ -1,5 +1,7 @@
 #page {
 	max-width: $site-width;
+	/* 20px spacer needed so format & comment icons don't fall out of frame */
+	padding-right: 20px;
 }
 
 .content-area {

@@ -50,22 +50,23 @@
 			}
 		}
 	}
-
 }
 
-/* Small menu */
 .menu-toggle {
 	display: none;
-	cursor: pointer;
-}
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+	padding: $alt-spacing/2;
+	color: white;
+	background: $sidebar-bg-color; // @color
+	font-family: $alt-font;
+	@include font-size(14);
+	text-transform: uppercase;
 
-@media screen and (max-width: 600px) {
-	.menu-toggle,
-	.main-navigation.toggled .nav-menu {
-		display: block;
-	}
-
-	.main-navigation ul {
-		display: none;
+	@include hoverActiveFocus {
+		color: white;
+		text-decoration: none;
 	}
 }

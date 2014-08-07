@@ -1,34 +1,52 @@
 /**
- * navigation.js
- *
- * Handles toggling the navigation menu for small screens.
- */
-( function() {
-	var container, button, menu;
+* navigation.js
+*
+* Handles toggling the navigation menu for small screens.
+*/
+( function( $ ) {
 
-	container = document.getElementById( 'site-navigation' );
-	if ( ! container )
-		return;
+	/**
+	 * Run this code when the #toggle-menu link has been tapped
+	 * or clicked
+	 */
+	$( '.menu-toggle' ).on( 'touchstart click', function(e) {
+		e.preventDefault();
 
-	button = container.getElementsByTagName( 'h1' )[0];
-	if ( 'undefined' === typeof button )
-		return;
+		var $body = $( 'body' ),
+			$page = $( '#content' ),
+			$sidebar = $( '#masthead, .site-header-bg' ),
 
-	menu = container.getElementsByTagName( 'ul' )[0];
+			/* Cross browser support for CSS "transition end" event */
+			transitionEnd = 'transitionend webkitTransitionEnd otransitionend MSTransitionEnd';
 
-	// Hide menu toggle button if menu is empty and return early.
-	if ( 'undefined' === typeof menu ) {
-		button.style.display = 'none';
-		return;
-	}
+		/* When the toggle menu link is clicked, animation starts */
+		$body.addClass( 'animating' );
 
-	if ( -1 === menu.className.indexOf( 'nav-menu' ) )
-		menu.className += ' nav-menu';
+		/**
+		 * Determine the direction of the animation and
+		 * add the correct direction class depending
+		 * on whether the menu was already visible.
+		 */
+		if ( $body.hasClass( 'menu-visible' ) ) {
+			$body.addClass( 'right' );
+		} else {
+			$body.addClass( 'left' );
+		}
 
-	button.onclick = function() {
-		if ( -1 !== container.className.indexOf( 'toggled' ) )
-			container.className = container.className.replace( ' toggled', '' );
-		else
-			container.className += ' toggled';
-	};
-} )();
+		/**
+		 * When the animation (technically a CSS transition)
+		 * has finished, remove all animating classes and
+		 * either add or remove the "menu-visible" class
+		 * depending whether it was visible or not previously.
+		 */
+		$page.on( transitionEnd, function() {
+			$body
+				.removeClass( 'animating left right' )
+				.toggleClass( 'menu-visible' );
+
+			$page.off( transitionEnd );
+		});
+
+	});
+
+})( jQuery );

@@ -19,7 +19,10 @@
 </head>
 
 <body <?php body_class(); ?>>
+<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'umbra' ); ?></a>
 <div id="page" class="hfeed site">
+
+	<a href="#" class="menu-toggle"><?php _e( 'Menu', 'umbra' ); ?></a>
 
 	<div id="content" class="site-content">
 
@@ -39,9 +42,6 @@
 			</div>
 
 			<nav id="site-navigation" class="main-navigation" role="navigation">
-				<h1 class="menu-toggle"><?php _e( 'Menu', 'umbra' ); ?></h1>
-				<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'umbra' ); ?></a>
-
 				<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 			</nav><!-- #site-navigation -->
 		</header><!-- #masthead -->

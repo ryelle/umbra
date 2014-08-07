@@ -31,6 +31,10 @@ function umbra_body_classes( $classes ) {
 		$classes[] = 'group-blog';
 	}
 
+	if ( ! is_singular() || ! has_post_thumbnail() ){
+		$classes[] = 'no-image';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'umbra_body_classes' );
