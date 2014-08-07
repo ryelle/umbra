@@ -33,7 +33,7 @@ class Umbra_ImageColors {
 
 		$color = get_theme_mod( 'umbra_base_color', false );
 
-		if ( ! is_singular() || ! has_post_thumbnail() ) {
+		if ( ! is_singular() ) {
 			if ( $color ) {
 				$this->print_css( $color );
 			}
@@ -49,9 +49,11 @@ class Umbra_ImageColors {
 	}
 
 	public function print_css( $color = false ){
+		$css = false;
+
 		if ( ! $color ){
-			$image_id = get_post_thumbnail_id();
-			$color = $this->get_base_color( $image_id );
+			$post_id = get_the_ID();
+			$color = $this->get_base_color( $post_id );
 		}
 
 		if ( $color ) {
@@ -92,13 +94,36 @@ class Umbra_ImageColors {
 		return $css;
 	}
 
-	public function get_base_color( $image_id ){
-		$thumb_attrs = wp_get_attachment_image_src( $image_id );
-		$image_src = $thumb_attrs[0];
+	public function get_base_color( $post_id ){
+		$image_src = $this->get_post_image( $post_id );
 		$image = new Tonesque( $image_src );
 
 		return $image->color();
 	}
+
+	/**
+	 * Get an image from a post
+	 *  (copied from Color Posts plugin)
+	 *
+	 * @uses Jetpack_PostImages::get_image( $post_id ) to get the source of an image in a post, apply_filters()
+	 *
+	 * @return string the image source
+	 */
+	public function get_post_image( $post_id ) {
+		if ( class_exists( 'Jetpack_PostImages' ) ) {
+			$the_image = Jetpack_PostImages::get_image( $post_id );
+			if ( ! empty( $the_image['src'] ) ) {
+				$the_image = $the_image['src'];
+			} else {
+				$the_image = apply_filters( 'jetpack_open_graph_image_default', "http://wordpress.com/i/blank." );
+			}
+		}
+
+		$the_image = apply_filters( 'umbra_image_output', $the_image );
+
+		return esc_url( $the_image );
+	}
+
 }
 
 global $umbra_image_colors;
