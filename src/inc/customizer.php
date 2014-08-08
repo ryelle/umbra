@@ -44,6 +44,7 @@ add_action( 'customize_register', 'umbra_customize_register' );
  */
 function umbra_customize_preview_js() {
 	wp_enqueue_script( 'umbra_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20130508', true );
+	wp_localize_script( 'umbra_customizer', 'umbra', array( 'url' => home_url( '/umbra-css/') ) );
 }
 add_action( 'customize_preview_init', 'umbra_customize_preview_js' );
 

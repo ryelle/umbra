@@ -73,7 +73,7 @@ class Umbra_ImageColors {
 		$color = get_query_var( 'umbra_color' );
 		$valid_color = preg_match( '/^[0-9a-f]{3}([0-9a-f]{3})?$/i', $color );
 		if ( ( '424046' == $color ) || ! $color || ! $valid_color ) {
-			return;
+			die();
 		}
 
 		$css = $this->generate_css( $color );

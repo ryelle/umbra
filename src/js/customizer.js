@@ -22,7 +22,7 @@
 	wp.customize( 'umbra_base_color', function( value ) {
 		value.bind( function( to ) {
 			$.when(
-				$.get( '/umbra-css/' + to.replace('#','') )
+				$.get( umbra.url + to.replace('#','') )
 			).then( function( css ) {
 				if ( ! $("#umbra-css").length ) {
 					$('head').append( '<style id="umbra-css"><style>' );
