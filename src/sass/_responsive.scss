@@ -76,3 +76,13 @@
 	}
 
 }
+
+@media (max-width: 400px) {
+	.site-main {
+		padding-right: $spacing;
+		padding-left: $spacing;
+	}
+	.entry-meta .genericon {
+		right: -45px;
+	}
+}
