@@ -82,6 +82,10 @@
 	}
 }
 
+.entry-header {
+	position: relative;
+}
+
 .entry-meta {
 	font-family: $alt-font;
 	@include font-size( $alt-size );
