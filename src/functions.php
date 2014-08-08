@@ -210,6 +210,15 @@ function umbra_mce_css( $mce_css ) {
 add_filter( 'mce_css', 'umbra_mce_css' );
 
 /**
+ * Flush rewrite rules when the theme is activated
+ */
+function umbra_flush_rules() {
+	global $wp_rewrite;
+	$wp_rewrite->flush_rules();
+}
+add_action( 'after_switch_theme', 'umbra_flush_rules' );
+
+/**
  * Load dynamic colors file.
  */
 require get_template_directory() . '/inc/dynamic-colors.php';
