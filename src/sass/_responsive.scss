@@ -78,6 +78,14 @@
 }
 
 @media (max-width: 400px) {
+	body,
+	button,
+	input,
+	select,
+	textarea {
+		@include font-size(17);
+		line-height: 1.4;
+	}
 	#page {
 		padding-right: 0;
 	}
