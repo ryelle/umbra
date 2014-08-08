@@ -103,7 +103,7 @@ module.exports = function(grunt) {
 
 	// Build task.
 	grunt.registerTask('dev',     ['sass:dev']);
-	grunt.registerTask('build',   ['clean:all', 'copy:all', 'sass:dev', 'clean:dist']);
+	grunt.registerTask('build',   ['clean:all', 'copy:all', 'sass:dist', 'clean:dist']);
 	grunt.registerTask('publish', ['build', 'compress:main']);
 
 	grunt.registerTask('screenshot', ['pageres']);
