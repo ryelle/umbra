@@ -134,8 +134,11 @@ li.pingback + li.comment .comment-meta {
 }
 
 .comment-form {
-	label {
-		@include screen-reader-text;
+	.comment-form-author,
+	.comment-form-email {
+		label {
+			@include hide-text;
+		}
 	}
 
 	input, textarea {
