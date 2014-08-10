@@ -209,6 +209,19 @@ li.pingback + li.comment .comment-meta {
 	font-style: italic;
 }
 
+.comment-subscription-form {
+	font-family: $alt-font;
+	text-transform: uppercase;
+
+	input {
+		font-size: 1em;
+	}
+
+	label {
+		@include font-size( 13 );
+	}
+}
+
 /* ="Comments Closed" text
 ----------------------------------------------- */
 
