@@ -132,4 +132,12 @@
 		width: 100%;
 	}
 
+	.site-main [class*="navigation"] {
+		.nav-next,
+		.nav-previous {
+			margin-bottom: $spacing;
+			width: 100%;
+		}
+	}
+
 }
