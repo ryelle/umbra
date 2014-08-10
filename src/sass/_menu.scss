@@ -65,6 +65,10 @@
 	@include font-size(14);
 	text-transform: uppercase;
 
+	.admin-bar & {
+		top: 46px;
+	}
+
 	@include hoverActiveFocus {
 		color: white;
 		text-decoration: none;
