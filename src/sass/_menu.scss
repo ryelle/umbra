@@ -57,7 +57,7 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	z-index: 9999;
+	z-index: 100; // Should be higher than anything else, but still below admin bar.
 	padding: $alt-spacing/2;
 	color: white;
 	background: $sidebar-bg-color; // @color
