@@ -74,7 +74,14 @@
 			left: 240px;
 		}
 	}
+}
 
+@media (max-width: 500px) {
+	.comment-form-author,
+	.comment-form-email {
+		width: 100%;
+		padding: 0 !important;
+	}
 }
 
 @media (max-width: 400px) {
@@ -103,4 +110,26 @@
 	.entry-meta .genericon {
 		right: -45px;
 	}
+
+	.comment-content,
+	.comment-respond {
+		margin-left: 0 !important;
+	}
+
+	.depth-2 {
+		margin-left: $spacing;
+	}
+
+	.reply {
+		position: relative;
+		top: auto;
+		right: auto;
+	}
+
+	.comment-form .form-submit input[type="submit"] {
+		padding-top: 10px;
+		padding-bottom: 10px;
+		width: 100%;
+	}
+
 }

@@ -92,6 +92,10 @@ li.comment .comment-respond {
 	}
 }
 
+#cancel-comment-reply-link {
+	float: right;
+}
+
 .children .avatar {
 	border-left: $comment-spacing solid white;
 }
@@ -124,6 +128,10 @@ li.pingback + li.comment .comment-meta {
 
 /* =Reply Form
 ----------------------------------------------- */
+
+.comment-respond {
+	margin-top: $comment-spacing;
+}
 
 .comment-form {
 	label {
