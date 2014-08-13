@@ -29,6 +29,9 @@ if ( false === $format ) {
 
 	<?php if ( ! is_singular() ) : ?>
 	<div class="entry-summary">
+		<?php if ( comments_open() || pings_open() ) : ?>
+		<span class="mobile-space"></span>
+		<?php endif; ?>
 		<?php the_excerpt(); ?>
 	</div><!-- .entry-summary -->
 	<?php else : ?>
