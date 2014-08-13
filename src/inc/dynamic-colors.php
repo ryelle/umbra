@@ -41,7 +41,7 @@ class Umbra_ImageColors {
 		}
 
 		$can_tonesque = get_theme_mod( 'umbra_use_tonesque', true );
-		if ( $can_tonesque ){
+		if ( $can_tonesque && $this->get_base_color( get_the_ID() ) ){
 			$this->print_css();
 		} elseif ( $color ) {
 			$this->print_css( $color );
@@ -102,6 +102,10 @@ class Umbra_ImageColors {
 
 	public function get_base_color( $post_id ){
 		$image_src = $this->get_post_image( $post_id );
+		if ( ! $image_src ) {
+			return false;
+		}
+
 		$image = new Tonesque( $image_src );
 
 		return $image->color();
@@ -121,7 +125,7 @@ class Umbra_ImageColors {
 			if ( ! empty( $the_image['src'] ) ) {
 				$the_image = $the_image['src'];
 			} else {
-				$the_image = apply_filters( 'jetpack_open_graph_image_default', "http://wordpress.com/i/blank." );
+				$the_image = apply_filters( 'jetpack_open_graph_image_default', false );
 			}
 		}
 
