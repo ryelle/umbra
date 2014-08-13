@@ -36,6 +36,9 @@ function umbra_setup() {
 	// Support tonesque from Jetpack
 	add_theme_support( 'tonesque' );
 
+	// Add custom TinyMCE CSS
+	add_editor_style();
+
 	/*
 	 * Enable support for Post Thumbnails on posts and pages.
 	 *

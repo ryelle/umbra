@@ -1,0 +1,32 @@
+/*!
+ * Umbra Editor styles
+ */
+
+// configure the style from settings
+@import 'settings';
+
+// reset styles should stay at the top
+@import 'reset';
+
+// genericons
+@import 'genericons';
+
+// move mixins to their own partial
+@import 'mixins';
+
+// feel free to add any new files you want; if you add them this list they'll be included
+@import 'global';
+@import 'typography';
+@import 'forms';
+@import 'content';
+@import 'media';
+
+html {
+	background-color: $body-background;
+}
+
+#tinymce {
+	background-color: $main-bg-color;
+	padding: #{$alt-spacing/2} #{$alt-spacing * 1.5} !important;
+	max-width: 580px;
+}
