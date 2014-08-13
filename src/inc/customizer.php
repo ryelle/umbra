@@ -43,7 +43,7 @@ add_action( 'customize_register', 'umbra_customize_register' );
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function umbra_customize_preview_js() {
-	wp_enqueue_script( 'umbra_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20130508', true );
+	wp_enqueue_script( 'umbra_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview', 'underscore' ), '20130508', true );
 	wp_localize_script( 'umbra_customizer', 'umbra', array( 'url' => home_url( '/umbra-css/') ) );
 }
 add_action( 'customize_preview_init', 'umbra_customize_preview_js' );
