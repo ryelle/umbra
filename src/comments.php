@@ -60,7 +60,7 @@ if ( post_password_required() ) {
 
 	<?php comment_form(array(
 		'comment_notes_after' => '',
-		'comment_field' => '<p class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" placeholder="' . _x( 'Comment', 'noun' )  . '"></textarea></p>',
+		'comment_field' => '<p class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" placeholder="' . _x( 'Comment', 'noun', 'umbra' )  . '"></textarea></p>',
 	)); ?>
 
 </div><!-- #comments -->
