@@ -14,6 +14,10 @@ class Umbra_ImageColors {
 		add_action( 'template_redirect', array( $this, 'ajax_css' ) );
 
 		add_action( 'wp_head', array( $this, 'wp_head' ) );
+
+		if ( defined( 'UMBRA_VERSION' ) ) {
+			$this->cache_prefix .= UMBRA_VERSION . '_';
+		}
 	}
 
 	public function rewrites(){
@@ -94,7 +98,7 @@ class Umbra_ImageColors {
 			$sass = '$base-color: #'. $color .';';
 			$sass .= file_get_contents( get_template_directory() . '/inc/dynamic-colors.scss' );
 			$css = Jetpack_Custom_CSS::minify( $sass, 'sass' );
-			set_transient( $key, $css );
+			set_transient( $key, $css, WEEK_IN_SECONDS );
 		}
 
 		return $css;
