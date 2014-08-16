@@ -91,12 +91,15 @@ class Umbra_ImageColors {
 		if ( ! class_exists( 'Jetpack_Custom_CSS' ) ) {
 			require Jetpack::get_module_path( 'custom-css' );
 		}
+		global $wp_filesystem;
+		// Don't worry about credentials, since we just want to read.
+		WP_Filesystem();
 
 		$key = $this->cache_prefix . str_replace( '#', '', $color );
 		$css = get_transient( $key );
 		if ( ! $css ){
 			$sass = '$base-color: #'. $color .';';
-			$sass .= file_get_contents( get_template_directory() . '/inc/dynamic-colors.scss' );
+			$sass .= $wp_filesystem->get_contents( get_template_directory() . '/inc/dynamic-colors.scss' );
 			$css = Jetpack_Custom_CSS::minify( $sass, 'sass' );
 			set_transient( $key, $css, WEEK_IN_SECONDS );
 		}
