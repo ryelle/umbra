@@ -99,3 +99,12 @@
 	}
 }
 
+.widget_jetpack_display_posts_widget .jetpack-display-remote-posts {
+	h4 {
+		margin-top: $alt-spacing;
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+}
