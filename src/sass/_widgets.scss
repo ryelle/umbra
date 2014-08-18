@@ -2,10 +2,27 @@
 ----------------------------------------------- */
 #secondary {
 	margin-top: $spacing * 2;
+	margin-left: -$alt-spacing/2;
+	margin-right: -$alt-spacing/2;
+
+	.widget {
+		float: left;
+		padding: 0 $alt-spacing/2;
+		width: 50%;
+	}
+
+	.widget:first-child:last-child {
+		float: none;
+		width: 100%;
+	}
 }
 
 .widget {
 	margin: 0 0 $spacing * 2;
+
+	h1 {
+		@include font-size($header2-size);
+	}
 
 	/* Make sure select elements fit in widgets */
 	select {
