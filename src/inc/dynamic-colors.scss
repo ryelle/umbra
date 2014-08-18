@@ -106,6 +106,10 @@ input, textarea {
 	}
 }
 
+pre {
+	background: $body-background;
+}
+
 a {
 	color: $link-color;
 	@include hoverActiveFocus {
@@ -113,9 +117,22 @@ a {
 	}
 }
 
-
 .site-content {
 	background-color: $main-bg-color;
+
+	$table-color: $sidebar-bg-color;
+	th {
+		color: lighten( $description-color, 15% );
+		background: $table-color;
+	}
+
+	td {
+		background: mix( white, $table-color, 95% );
+	}
+
+	tr:nth-of-type(odd) td {
+		background: mix( white, $table-color, 90% );
+	}
 }
 
 .site-header-bg {

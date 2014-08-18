@@ -68,19 +68,26 @@ dfn, cite, em, i {
 }
 blockquote {
 	margin: 0 $spacing;
+	quotes: '\201c' "'";
+	p:first-of-type:before { content: open-quote; }
+}
+q {
+	quotes: '\201c' '\201d';
+	&:before { content: open-quote }
+	&:after { content: close-quote }
 }
 address {
 	margin: 0 0 $spacing;
 }
 pre {
-	background: #eee;
+	overflow: auto;
+	margin-bottom: 1.6em;
+	padding: 1.6em;
+	max-width: 100%;
+	background: $body-background;
 	font-family: $monospace-font;
 	@include font-size( $monospace-size );
 	line-height: 1.6;
-	margin-bottom: 1.6em;
-	padding: 1.6em;
-	overflow: auto;
-	max-width: 100%;
 }
 code, kbd, tt, var {
 	font: 15px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
@@ -115,6 +122,28 @@ big {
 }
 th {
 	font-weight: bold;
+}
+// @color
+.site-content {
+	$table-color: $sidebar-bg-color;
+
+	th, td {
+		padding: 5px 10px;
+	}
+
+	th {
+		font-weight: normal;
+		color: lighten( $description-color, 15% );
+		background: $table-color;
+	}
+
+	td {
+		background: mix( white, $table-color, 95% );
+	}
+
+	tr:nth-of-type(odd) td {
+		background: mix( white, $table-color, 90% );
+	}
 }
 
 /* Links */
