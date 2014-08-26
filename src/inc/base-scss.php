@@ -1,3 +1,12 @@
+<?php
+/**
+ * Base SCSS for the custom color schemes, exported as a
+ * global variable to avoid requiring file systems access.
+ */
+
+global $umbra_base_scss;
+$umbra_base_scss = <<<'SCSS'
+
 // Base color scheme
 
 // Use sassme to grab the current hsl of these vars, then adjust with the hue of the current color? adjust hue for alt
@@ -289,4 +298,5 @@ a {
 		}
 	}
 }
-
+SCSS;
+// End Scss
