@@ -142,30 +142,21 @@ li.pingback + li.comment .comment-meta {
 	}
 
 	input, textarea {
-		font-family: $alt-font;
-		color: darken( $alt-color, 10% );
-		@include font-size( $alt-size );
-		box-sizing: border-box;
 		border: 1px solid $comment-box-border;
+
+		&:focus {
+			outline: none;
+			border-color: darken( $comment-box-border, 20% );
+		}
 	}
 
 	input[type="text"],
 	input[type="email"] {
 		padding: 3px $alt-spacing/2;
+		@include font-size( $alt-size );
 		text-transform: uppercase;
 		line-height: 40px;
 		width: 100%;
-	}
-
-	textarea {
-		width: 100%;
-		padding: $alt-spacing/2;
-		resize: vertical;
-		@include font-size( 16 );
-
-		&:focus {
-			color: $text-color;
-		}
 	}
 
 	.logged-in-as,
@@ -180,13 +171,7 @@ li.pingback + li.comment .comment-meta {
 
 		input[type="submit"] {
 			float: right;
-			padding: $alt-spacing/2 $alt-spacing;
-			border: none;
-			font-family: $alt-font;
 			@include font-size( 14 );
-			text-transform: uppercase;
-			color: white;
-			background-color: $header-color;
 		}
 	}
 }

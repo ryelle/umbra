@@ -68,7 +68,7 @@ $main-bg-color: white;
 // Use the color scheme colors to create element-specific styles
 $link-color: $alt-color;
 
-$comment-box-border: $comment-header-bg;
+$comment-box-border: mix( $comment-header-bg, $body-background );
 
 @mixin hoverActiveFocus() {
 	&:hover, &:active, &:focus {
@@ -107,11 +107,26 @@ textarea {
 
 input, textarea {
 	color: darken( $alt-color, 10% );
-	border: 1px solid $comment-box-border;
 
-	&:hover, &:focus {
-		background: darken( $body-background, 10% );
+	&:focus {
 		outline-color: darken( $body-background, 20% );
+	}
+}
+
+textarea:focus {
+	color: $text-color;
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	color: contrast-color( $header-color );
+	background-color: $header-color;
+
+	&:hover {
+		color: contrast-color( darken( $header-color, 10% ) );
+		background-color: darken( $header-color, 10% );
 	}
 }
 
@@ -249,9 +264,14 @@ a {
 }
 
 .comment-form {
-	.form-submit input[type="submit"] {
-		color: contrast-color( $header-color );
-		background-color: $header-color;
+	input, textarea {
+		border-color: $comment-box-border;
+	}
+
+	input:focus,
+	textarea:focus {
+		outline: none;
+		border-color: darken( $comment-box-border, 20% );
 	}
 }
 

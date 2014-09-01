@@ -6,6 +6,7 @@ textarea {
 	margin: 0; /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
 	vertical-align: baseline; /* Improves appearance and consistency in all browsers */
 	*vertical-align: middle; /* Improves appearance and consistency in all browsers */
+	box-sizing: border-box;
 }
 button,
 input[type="button"],
@@ -58,17 +59,38 @@ textarea {
 	@include font-size( 14 );
 	line-height: 2;
 
-	&:hover, &:focus {
-		background: darken( $body-background, 10% );
+	&:focus {
 		outline-color: darken( $body-background, 20% );
+	}
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	padding: $alt-spacing/2 $alt-spacing;
+	border: none;
+	font-family: $alt-font;
+	text-transform: uppercase;
+	color: white;
+	background-color: $header-color;
+
+	&:hover {
+		background-color: darken( $header-color, 10% );
 	}
 }
 
 textarea {
 	overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
-	padding-left: 3px;
+	width: 100%;
+	padding: $alt-spacing/2;
+	resize: vertical;
+	@include font-size( 16 );
 	vertical-align: top; /* Improves readability and alignment in all browsers */
-	width: 98%;
+
+	&:focus {
+		color: $text-color;
+	}
 }
 
 /* =Search Form
@@ -76,11 +98,9 @@ textarea {
 
 .search-form {
 	.search-field {
-		box-sizing: border-box;
 		width: 69%
 	}
 	.search-submit {
-		box-sizing: border-box;
 		width: 30%;
 	}
 }
