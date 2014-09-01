@@ -262,6 +262,9 @@ a {
 		color: $header-color;
 	}
 }
+.comment-awaiting-moderation {
+	color: $comment-text;
+}
 
 .comment-form {
 	input, textarea {

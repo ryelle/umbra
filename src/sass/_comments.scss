@@ -191,6 +191,7 @@ li.pingback + li.comment .comment-meta {
 }
 
 .comment-awaiting-moderation {
+	color: $description-color;
 	font-style: italic;
 }
 
