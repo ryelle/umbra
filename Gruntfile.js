@@ -1,6 +1,7 @@
 /* jshint node:true */
 module.exports = function(grunt) {
 	var path = require('path'),
+		THEME_NAME = 'umbra',
 		SOURCE_DIR = 'src/',
 		BUILD_DIR = 'build/';
 
@@ -24,6 +25,7 @@ module.exports = function(grunt) {
 				]
 			}
 		},
+
 		copy: {
 			all: {
 				files: [{
@@ -44,6 +46,7 @@ module.exports = function(grunt) {
 				}]
 			}
 		},
+
 		sass: {
 			dev: {
 				options: {
@@ -69,6 +72,17 @@ module.exports = function(grunt) {
 			}
 		},
 
+		concat: {
+			dev: {
+				src: [ SOURCE_DIR + 'js/src/*.js' ],
+				dest: SOURCE_DIR + 'js/' + THEME_NAME + '.js'
+			},
+			dist: {
+				src: [ SOURCE_DIR + 'js/src/*.js' ],
+				dest: BUILD_DIR + 'js/' + THEME_NAME + '.js'
+			}
+		},
+
 		pageres: {
 			dist: {
 				options: {
@@ -83,7 +97,7 @@ module.exports = function(grunt) {
 		compress: {
 			main: {
 				options: {
-					archive: 'umbra.zip'
+					archive: THEME_NAME + '.zip'
 				},
 				files: [
 					{expand: true, cwd: BUILD_DIR, src: ['**'], dest: '/'}
@@ -92,9 +106,13 @@ module.exports = function(grunt) {
 		},
 
 		watch: {
-			dev: {
+			css: {
 				files: [SOURCE_DIR + 'sass/**'],
 				tasks: ['sass:dev']
+			},
+			js: {
+				files: [SOURCE_DIR + 'js/src/**'],
+				tasks: ['concat:dev']
 			}
 		}
 	});
@@ -102,8 +120,8 @@ module.exports = function(grunt) {
 	// Register tasks.
 
 	// Build task.
-	grunt.registerTask('dev',     ['sass:dev']);
-	grunt.registerTask('build',   ['clean:all', 'copy:all', 'sass:dist', 'clean:dist']);
+	grunt.registerTask('dev',     ['sass:dev', 'concat:dev']);
+	grunt.registerTask('build',   ['clean:all', 'copy:all', 'sass:dist', 'concat:dist', 'clean:dist']);
 	grunt.registerTask('publish', ['build', 'compress:main']);
 
 	grunt.registerTask('screenshot', ['pageres']);
