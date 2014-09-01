@@ -150,6 +150,11 @@
 	color: $header-color;
 }
 
+.entry-footer {
+	font-style: italic;
+	@include font-size( 16 );
+}
+
 .page-content,
 .entry-content,
 .entry-summary {
