@@ -20,7 +20,7 @@ function umbra_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( 'umbra_use_tonesque', array(
-		'label'      => __( 'Pull page colors from the featured image', 'umbra' ),
+		'label'      => __( 'Create color scheme from first image', 'umbra' ),
 		'section'    => 'colors',
 		'type'       => 'checkbox',
 	) );
