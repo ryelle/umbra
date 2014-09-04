@@ -177,11 +177,13 @@ function umbra_fonts() {
 add_action( 'wp_enqueue_scripts', 'umbra_fonts' );
 
 /**
- * Enqueue Google fonts style to admin screen for custom header display.
+ * Enqueue Google fonts style to admin screens for custom header
+ * display and edit screen for TinyMCE typography dropdown.
  */
 function umbra_admin_fonts( $hook_suffix ) {
-	if ( 'appearance_page_custom-header' != $hook_suffix )
+	if ( ! in_array( $hook_suffix, array( 'appearance_page_custom-header', 'post-new.php', 'post.php' ) ) ) {
 		return;
+	}
 
 	umbra_fonts();
 
