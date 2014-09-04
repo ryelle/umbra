@@ -51,6 +51,7 @@ matrix:
 # Failures in this section will result in build status 'errored'.
 before_install:
     - npm install -g grunt-cli
+    - gem install sass
 
 # Use this to prepare your build for testing.
 # e.g. copy database configurations, environment variables, etc.
