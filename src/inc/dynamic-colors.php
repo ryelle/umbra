@@ -80,14 +80,19 @@ class Umbra_ImageColors {
 			die();
 		}
 
-		$css = $this->generate_css( $color );
+		$cache = true;
+		if ( isset( $_GET['no-cache'] ) ){
+			$cache = false;
+		}
+
+		$css = $this->generate_css( $color, $cache );
 
 		header("Content-type: text/css; charset: UTF-8");
 		echo $css;
 		die();
 	}
 
-	public function generate_css( $color ) {
+	public function generate_css( $color, $cache = true ) {
 		if ( ! class_exists( 'Jetpack_Custom_CSS' ) ) {
 			require Jetpack::get_module_path( 'custom-css' );
 		}
@@ -96,13 +101,16 @@ class Umbra_ImageColors {
 		require_once('base-scss.php');
 
 		$key = $this->cache_prefix . str_replace( '#', '', $color );
-		$css = false; //get_transient( $key );
+		$css = ( $cache ) ? get_transient( $key ) : false;
 		if ( ! $css ){
 			$sass = '$base-color: #'. $color .';';
 			$sass .= $umbra_base_scss;
 			$sass = apply_filters( 'umbra_color_scheme', $sass, $color );
 			$css = Jetpack_Custom_CSS::minify( $sass, 'sass' );
-			set_transient( $key, $css, WEEK_IN_SECONDS );
+
+			if ( $cache && $css ) {
+				set_transient( $key, $css, WEEK_IN_SECONDS );
+			}
 		}
 
 		return $css;

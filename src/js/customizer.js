@@ -20,7 +20,7 @@
 
 	var getCSS = _.debounce( function( to ){
 		$.when(
-			$.get( umbra.url + to.replace('#','') )
+			$.get( umbra.url + to.replace('#','') + '?no-cache' )
 		).then( function( css ) {
 			if ( ! $("#umbra-css").length ) {
 				$('head').append( '<style id="umbra-css"><style>' );
