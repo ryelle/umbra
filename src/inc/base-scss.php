@@ -15,7 +15,8 @@ $base-color: saturate( $base-color, 5% );
 $body-background: hsl( hue($base-color), saturation(#f9f9f9), lightness(#f9f9f9) );
 $text-color: hsl( hue($base-color), saturation(#424046), lightness(#424046) );
 
-$header-color: hsl( hue($base-color), saturation(#6b6479), lightness(#6b6479) );
+$header-color: hsl( hue($base-color), saturation(#6b6479) + 15, lightness(#6b6479) - 10 );
+$action-color:  hsl( hue($base-color), saturation(#6b6479), lightness(#6b6479) );
 $highlight-color: desaturate( hsl( hue($base-color) + 150, saturation(#e0bc64), lightness(#e0bc64) ), 20% );
 $alt-color: hsl( hue($base-color), saturation(#b5b1bd), lightness(#b5b1bd) );
 
@@ -121,12 +122,12 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	color: contrast-color( $header-color );
-	background-color: $header-color;
+	color: contrast-color( $action-color );
+	background-color: $action-color;
 
 	&:hover {
-		color: contrast-color( darken( $header-color, 10% ) );
-		background-color: darken( $header-color, 10% );
+		color: contrast-color( darken( $action-color, 10% ) );
+		background-color: darken( $action-color, 10% );
 	}
 }
 
@@ -222,8 +223,8 @@ a {
 	}
 
 	.genericon {
-		color: $header-color;
-		background-color: $header-color;
+		color: $action-color;
+		background-color: $action-color;
 
 		&.genericon-comment {
 			color: $highlight-color;
@@ -247,7 +248,7 @@ a {
 
 	.comment-author {
 		&, a, a:hover, a:active, a:focus {
-			color: $header-color;
+			color: $action-color;
 		}
 	}
 
@@ -259,7 +260,7 @@ a {
 }
 .reply {
 	a, a:hover, a:active, a:focus {
-		color: $header-color;
+		color: $action-color;
 	}
 }
 .comment-awaiting-moderation {

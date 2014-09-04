@@ -45,7 +45,7 @@ $comment-spacing: $alt-spacing/2;
 		@include font-size( 16 );
 
 		&, a, a:hover, a:active, a:focus {
-			color: $header-color;
+			color: $action-color;
 		}
 
 		.says {
@@ -88,7 +88,7 @@ li.comment .comment-respond {
 	font-weight: bold;
 
 	a, a:hover, a:active, a:focus {
-		color: $header-color;
+		color: $action-color;
 	}
 }
 

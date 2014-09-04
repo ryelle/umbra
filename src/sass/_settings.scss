@@ -22,7 +22,10 @@ $bold: 700;
 // Base color scheme
 $body-background: #f9f9f9;
 $text-color: #424046;
-$header-color: #6b6479; // saturate(lighten(#6b6479, 50), 50)
+$action-color: #6b6479; // saturate(lighten(#6b6479, 50), 50)
+$header-color: darken( $action-color, 10% );
+
+
 $description-color: #8f8a99;
 $highlight-color: #e0bc64;
 $alt-color: #b5b1bd;
