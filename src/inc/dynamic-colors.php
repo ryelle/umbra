@@ -150,7 +150,9 @@ class Umbra_ImageColors {
 			if ( ! empty( $the_image['src'] ) ) {
 				$the_image = $the_image['src'];
 			} else {
-				$the_image = apply_filters( 'jetpack_open_graph_image_default', false );
+				if ( ! ( $the_image = wp_get_attachment_url( get_post_thumbnail_id( $post_id ) ) ) ) {
+					$the_image = apply_filters( 'jetpack_open_graph_image_default', false );
+				}
 			}
 		}
 
