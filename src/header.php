@@ -22,7 +22,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'umbra' ); ?></a>
+<a class="skip-link screen-reader-text" href="#primary"><?php _e( 'Skip to content', 'umbra' ); ?></a>
 <div id="page" class="hfeed site">
 
 	<a href="#" class="menu-toggle"><?php _e( 'Menu', 'umbra' ); ?></a>
