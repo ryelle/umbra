@@ -16,6 +16,7 @@
 .wp-caption {
 	margin-bottom: $spacing;
 	max-width: 100%;
+	border: none;
 	background: $body-background;
 	color: contrast-color( $body-background );
 
@@ -25,8 +26,9 @@
 		max-width: 100%;
 	}
 
-	.wp-caption-text {
-		padding: 0.8075em 0;
+	.wp-caption-text,
+	.wp-caption-dd {
+		padding: 0.8075em 5px;
 		font-family: $alt-font;
 		@include font-size( 14 );
 		text-align: center;
