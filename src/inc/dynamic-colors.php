@@ -103,8 +103,17 @@ class Umbra_ImageColors {
 		$key = $this->cache_prefix . str_replace( '#', '', $color );
 		$css = ( $cache ) ? get_transient( $key ) : false;
 		if ( ! $css ){
-			$sass = '$base-color: #'. $color .';';
-			$sass .= $umbra_base_scss;
+			$sass = '$base-color: #' . $color . '; ' . $umbra_base_scss;
+
+			/**
+			 * Filter the sass used for dynamic color CSS generation
+			 *
+			 * @since 0.1.0
+			 *
+			 * @param string  $sass   The Sass used to generate the CSS
+			 * @param string  $color  The color picked from the image, used as
+			 *                        the $base-color for all other color variables
+			 */
 			$sass = apply_filters( 'umbra_color_scheme', $sass, $color );
 			$css = Jetpack_Custom_CSS::minify( $sass, 'sass' );
 
@@ -145,7 +154,15 @@ class Umbra_ImageColors {
 			}
 		}
 
-		$the_image = apply_filters( 'umbra_image_output', $the_image );
+		/**
+		 * Filter the image url used as the "First image" for a post
+		 *
+		 * @since 0.1.0
+		 *
+		 * @param string  $the_image  The url of the selected first image (or Jetpack's default image)
+		 * @param int     $post_id    The ID of the post we want the image from
+		 */
+		$the_image = apply_filters( 'umbra_image_output', $the_image, $post_id );
 
 		return esc_url( $the_image );
 	}
