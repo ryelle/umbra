@@ -70,7 +70,7 @@ before_script:
     - grunt build
     - cd ..
     - mv $theme_slug/build $theme_dir
-    - mv codesniffer.ruleset.xml $theme_dir/codesniffer.ruleset.xml
+    - mv $theme_slug/codesniffer.ruleset.xml $theme_dir/codesniffer.ruleset.xml
     # Set up WordPress configuration.
     - cd $WP_DEVELOP_DIR
     - echo $WP_DEVELOP_DIR
