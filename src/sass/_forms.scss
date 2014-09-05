@@ -98,10 +98,18 @@ textarea {
 
 .search-form {
 	.search-field {
-		width: 69%
+		box-sizing: border-box;
+		width: 73%;
 	}
 	.search-submit {
-		width: 30%;
+		box-sizing: border-box;
+		padding: 3px 5px;
+		width: 25%;
+		background-color: $header-color;
+
+		&:hover {
+			background-color: darken( $header-color, 10% );
+		}
 	}
 }
 

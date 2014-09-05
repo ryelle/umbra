@@ -9,11 +9,29 @@
 		float: left;
 		padding: 0 $alt-spacing/2;
 		width: 50%;
+
+		.search-form {
+			.search-field {
+				width: 58%;
+			}
+			.search-submit {
+				width: 40%;
+			}
+		}
 	}
 
 	.widget:first-child:last-child {
 		float: none;
 		width: 100%;
+
+		.search-form {
+			.search-field {
+				width: 73%;
+			}
+			.search-submit {
+				width: 25%;
+			}
+		}
 	}
 }
 

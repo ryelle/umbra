@@ -74,6 +74,13 @@
 	}
 }
 
+@media (max-width: 600px) {
+	#secondary .widget {
+		float: none;
+		width: 100%;
+	}
+}
+
 @media (max-width: 500px) {
 	.comment-form-author,
 	.comment-form-email {
@@ -144,6 +151,15 @@
 			width: 100%;
 
 			a { width: 100%; }
+		}
+	}
+
+	.search-form {
+		.search-field {
+			width: 58% !important;
+		}
+		.search-submit {
+			width: 40% !important;
 		}
 	}
 

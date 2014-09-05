@@ -302,6 +302,14 @@ a {
 			background: darken( $body-background, 10% );
 		}
 	}
+
+	.search-submit {
+		background-color: $header-color;
+
+		&:hover {
+			background-color: darken( $header-color, 10% );
+		}
+	}
 }
 
 .widget {
