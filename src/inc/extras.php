@@ -40,6 +40,25 @@ function umbra_body_classes( $classes ) {
 add_filter( 'body_class', 'umbra_body_classes' );
 
 /**
+ * Adds custom classes to the array of post classes.
+ *
+ * @param array  $classes An array of post classes.
+ * @param string $class   A comma-separated list of additional classes added to the post.
+ * @param int    $post_id The post ID.
+ * @return array
+ */
+function umbra_post_class( $classes, $class, $post_id ) {
+	$title = get_the_title( $post_id );
+
+	if ( empty( $title ) ) {
+		$classes[] = 'no-title';
+	}
+
+	return $classes;
+}
+add_filter( 'post_class', 'umbra_post_class', 10, 3 );
+
+/**
  * Filters wp_title to print a neat <title> tag based on what is being viewed.
  *
  * @param string $title Default title text for current view.

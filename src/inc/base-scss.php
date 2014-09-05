@@ -211,7 +211,8 @@ a {
 }
 
 .entry-title,
-.entry-title a {
+.entry-title a,
+.no-title a {
 	color: $header-color;
 }
 

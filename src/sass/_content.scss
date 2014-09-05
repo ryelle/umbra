@@ -146,7 +146,8 @@
 }
 
 .entry-title,
-.entry-title a {
+.entry-title a,
+.no-title a {
 	line-height: 1.3;
 	color: $header-color;
 }
@@ -160,6 +161,10 @@
 .entry-content,
 .entry-summary {
 	margin: $spacing 0 0;
+
+	.no-title & {
+		margin-top: $spacing/2;
+	}
 }
 
 .page-links {

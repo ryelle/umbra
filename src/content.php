@@ -6,11 +6,14 @@ $format = get_post_format();
 if ( false === $format ) {
 	$format = 'standard';
 }
+$title = get_the_title();
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
+		<?php if ( ! empty( $title ) ) : ?>
+			<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
+		<?php endif; ?>
 
 		<?php if ( 'post' == get_post_type() ) : ?>
 		<div class="entry-meta">
@@ -32,7 +35,9 @@ if ( false === $format ) {
 		<?php if ( comments_open() || pings_open() ) : ?>
 		<span class="mobile-space"></span>
 		<?php endif; ?>
+		<?php if ( empty( $title ) ) : ?><a href="<?php the_permalink(); ?>" rel="bookmark"><?php endif; ?>
 		<?php the_excerpt(); ?>
+		<?php if ( empty( $title ) ) : ?></a><?php endif; ?>
 	</div><!-- .entry-summary -->
 	<?php else : ?>
 	<div class="entry-content">
