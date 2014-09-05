@@ -139,7 +139,11 @@
 		.nav-next,
 		.nav-previous {
 			margin-bottom: $spacing;
+			padding-left: 0;
+			padding-right: 0;
 			width: 100%;
+
+			a { width: 100%; }
 		}
 	}
 
