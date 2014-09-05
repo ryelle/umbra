@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ryelle/umbra.svg?branch=master)](https://travis-ci.org/ryelle/umbra)
+
 Umbra
 =====
 
