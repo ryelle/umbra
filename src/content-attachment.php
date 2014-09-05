@@ -2,6 +2,15 @@
 /**
  * @package Umbra
  */
+if ( 0 === strpos( $post->post_mime_type, 'video' ) ) {
+	$format = 'video';
+} elseif ( 0 === strpos( $post->post_mime_type, 'audio' ) ) {
+	$format = 'audio';
+} elseif ( ! wp_attachment_is_image() ) {
+	$format = 'standard';
+} else {
+	$format = 'image';
+}
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -17,7 +26,7 @@
 		<div class="entry-meta">
 			<?php umbra_posted_on(); ?>
 			<div class="entry-icons">
-				<i class="genericon genericon-image"></i>
+				<i class="genericon genericon-<?php echo $format; ?>"></i>
 			</div><!-- .entry-icons -->
 		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
@@ -36,6 +45,8 @@
 				echo wp_video_shortcode( $atts );
 			} elseif ( 0 === strpos( $post->post_mime_type, 'audio' ) ) {
 				echo wp_audio_shortcode( array( 'src' => wp_get_attachment_url() ) );
+			} elseif ( ! wp_attachment_is_image() ) {
+				echo wp_get_attachment_link( 0, 'post-thumbnail', false, true );
 			}
 
 			if ( $caption ) {
