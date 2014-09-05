@@ -22,7 +22,9 @@ if ( false === $format ) {
 			<?php umbra_posted_on(); ?>
 			<div class="entry-icons">
 				<?php if ( 'standard' != $format ) : ?><a href="<?php echo get_post_format_link( $format ); ?>"><?php endif; ?>
-				<i class="genericon genericon-<?php echo esc_attr( $format ); ?>"></i>
+				<i class="genericon genericon-<?php echo esc_attr( $format ); ?>">
+					<?php if ( 'standard' != $format ) : ?><span class="screen-reader-text"><?php echo esc_html( $format ); ?></span><?php endif; ?>
+				</i>
 				<?php if ( 'standard' != $format ) : ?></a><?php endif; ?>
 			</div><!-- .entry-icons -->
 		</div><!-- .entry-meta -->

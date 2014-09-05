@@ -20,10 +20,17 @@ $title = get_the_title();
 			<?php umbra_posted_on(); ?>
 			<div class="entry-icons">
 				<?php if ( 'standard' != $format ) : ?><a href="<?php echo get_post_format_link( $format ); ?>"><?php endif; ?>
-				<i class="genericon genericon-<?php echo esc_attr( $format ); ?>"></i>
+				<i class="genericon genericon-<?php echo esc_attr( $format ); ?>">
+					<?php if ( 'standard' != $format ) : ?><span class="screen-reader-text"><?php echo esc_html( $format ); ?></span><?php endif; ?>
+				</i>
 				<?php if ( 'standard' != $format ) : ?></a><?php endif; ?>
 				<?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
-				<?php comments_popup_link( '<i class="genericon genericon-comment"></i>', '<i class="genericon genericon-comment"><span>1</span></i>', '<i class="genericon genericon-comment"><span>%</span></i>' ); ?>
+				<?php
+					$zero = '<i class="genericon genericon-comment"></i><span class="screen-reader-text">' . sprintf( __( 'Respond to %s', 'umbra' ), get_the_title() ) . '</span>';
+					$one = '<i class="genericon genericon-comment"><span>1</span></i><span class="screen-reader-text">' . sprintf( __( 'Comment on %s', 'umbra' ), get_the_title() ) . '</span>';
+					$many = '<i class="genericon genericon-comment"><span>%</span></i><span class="screen-reader-text">' . sprintf( __( 'Comments on %s', 'umbra' ), get_the_title() ) . '</span>';
+					comments_popup_link( $zero, $one, $many );
+				?>
 				<?php endif; ?>
 			</div><!-- .entry-icons -->
 		</div><!-- .entry-meta -->
