@@ -152,10 +152,9 @@ li.pingback + li.comment .comment-meta {
 
 	input[type="text"],
 	input[type="email"] {
-		padding: 3px $alt-spacing/2;
+		padding: 8px $alt-spacing/2 9px;
 		@include font-size( $alt-size );
 		text-transform: uppercase;
-		line-height: 40px;
 		width: 100%;
 	}
 

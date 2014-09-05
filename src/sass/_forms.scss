@@ -51,13 +51,12 @@ input[type="url"],
 input[type="password"],
 input[type="search"],
 textarea {
-	padding: 3px 5px;
+	padding: 8px 5px;
 	border: none;
 	border-radius: 0;
 	background: $body-background;
 	font-family: $alt-font;
 	@include font-size( 14 );
-	line-height: 2;
 
 	&:focus {
 		outline-color: darken( $body-background, 20% );
@@ -103,7 +102,7 @@ textarea {
 	}
 	.search-submit {
 		box-sizing: border-box;
-		padding: 3px 5px;
+		padding: 11px 5px;
 		width: 25%;
 		background-color: $header-color;
 
