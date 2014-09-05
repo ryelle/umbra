@@ -10,6 +10,7 @@
 	 * or clicked
 	 */
 	$( '.menu-toggle' ).on( 'touchstart click', function(e) {
+		e.stopPropagation();
 		e.preventDefault();
 
 		var $body = $( 'body' ),
