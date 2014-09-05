@@ -16,7 +16,7 @@ function umbra_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
 	$wp_customize->add_setting( 'umbra_use_tonesque', array(
-		'default' => true
+		'default' => true,
 	) );
 
 	$wp_customize->add_control( 'umbra_use_tonesque', array(
@@ -44,7 +44,7 @@ add_action( 'customize_register', 'umbra_customize_register' );
  */
 function umbra_customize_preview_js() {
 	wp_enqueue_script( 'umbra_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview', 'underscore' ), '20130508', true );
-	wp_localize_script( 'umbra_customizer', 'umbra', array( 'url' => home_url( '/umbra-css/') ) );
+	wp_localize_script( 'umbra_customizer', 'umbra', array( 'url' => home_url( '/umbra-css/' ) ) );
 }
 add_action( 'customize_preview_init', 'umbra_customize_preview_js' );
 

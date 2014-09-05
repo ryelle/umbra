@@ -87,7 +87,7 @@ class Umbra_ImageColors {
 
 		$css = $this->generate_css( $color, $cache );
 
-		header("Content-type: text/css; charset: UTF-8");
+		header( 'Content-type: text/css; charset: UTF-8' );
 		echo $css;
 		die();
 	}

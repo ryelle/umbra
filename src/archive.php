@@ -39,10 +39,10 @@ get_header(); ?>
 							_e( 'Asides', 'umbra' );
 
 						elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) :
-							_e( 'Galleries', 'umbra');
+							_e( 'Galleries', 'umbra' );
 
 						elseif ( is_tax( 'post_format', 'post-format-image' ) ) :
-							_e( 'Images', 'umbra');
+							_e( 'Images', 'umbra' );
 
 						elseif ( is_tax( 'post_format', 'post-format-video' ) ) :
 							_e( 'Videos', 'umbra' );
