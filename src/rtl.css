@@ -6,12 +6,494 @@ it's just a matter of overwriting all the horizontal positioning attributes
 of your CSS stylesheet in a separate stylesheet file named rtl.css.
 
 http://codex.wordpress.org/Right_to_Left_Language_Support
-
 */
 
-/*
-body {
-	direction: rtl;
-	unicode-bidi: embed;
+/* =Global
+----------------------------------------------- */
+caption, th, td {
+	text-align: right;
 }
+
+/* Text meant only for screen readers */
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+	right: 5px;
+	left: auto;
+}
+
+/* Text elements */
+
+ul, ol {
+	margin: 0 3em 25px 0;
+}
+
+li > ul,
+li > ol {
+	margin-right: 25px;
+	margin-left: auto;
+}
+
+/* =Layout
+----------------------------------------------- */
+
+#page {
+	padding-left: 20px;
+	padding-right: 0;
+}
+
+.content-area {
+	float: left;
+	margin: 0 -260px 0 0;
+}
+
+.site-main {
+	margin: 0 260px 0 0;
+}
+
+/* Sidebar & Header */
+
+.site-content .site-header,
+.site-content .site-footer {
+	float: right;
+}
+
+.site-content .site-header-bg {
+	right: 0;
+	left: auto;
+}
+
+/* =Menu
+----------------------------------------------- */
+.main-navigation {
+	float: right;
+}
+
+.main-navigation ul {
+	padding-right: 0;
+	padding-left: 0;
+}
+
+.menu-toggle {
+	right: 0;
+	left: auto;
+}
+
+/* =Content
+----------------------------------------------- */
+
+.entry-meta .genericon {
+	left: -65px;
+	right: auto;
+}
+
+.entry-meta .genericon span {
+	right: 0;
+	left: auto;
+}
+
+/* =Media
+----------------------------------------------- */
+
+.gallery .gallery-item {
+	float: right;
+}
+
+/* Fluid Gallery Columns
+   works well if you remove the default gallery styling
+   by adding the following to your functions.php
+   add_filter( 'use_default_gallery_style', '__return_false' );
 */
+.gallery-columns-1 .gallery-item {
+	margin-left: 2%;
+	margin-right: auto;
+}
+
+.gallery-columns-1 .gallery-item:nth-of-type(1n - 1) {
+	margin-left: 0;
+	clear: left;
+	margin-right: auto;
+}
+
+.gallery-columns-2 .gallery-item {
+	margin-left: 2%;
+	margin-right: auto;
+}
+
+.gallery-columns-2 .gallery-item:nth-of-type(2n - 2) {
+	margin-left: 0;
+	clear: left;
+	margin-right: auto;
+}
+
+.gallery-columns-3 .gallery-item {
+	margin-left: 2%;
+	margin-right: auto;
+}
+
+.gallery-columns-3 .gallery-item:nth-of-type(3n - 3) {
+	margin-left: 0;
+	clear: left;
+	margin-right: auto;
+}
+
+.gallery-columns-4 .gallery-item {
+	margin-left: 2%;
+	margin-right: auto;
+}
+
+.gallery-columns-4 .gallery-item:nth-of-type(4n - 4) {
+	margin-left: 0;
+	clear: left;
+	margin-right: auto;
+}
+
+.gallery-columns-5 .gallery-item {
+	margin-left: 2%;
+	margin-right: auto;
+}
+
+.gallery-columns-5 .gallery-item:nth-of-type(5n - 5) {
+	margin-left: 0;
+	clear: left;
+	margin-right: auto;
+}
+
+.gallery-columns-6 .gallery-item {
+	margin-left: 2%;
+	margin-right: auto;
+}
+
+.gallery-columns-6 .gallery-item:nth-of-type(6n - 6) {
+	margin-left: 0;
+	clear: left;
+	margin-right: auto;
+}
+
+.gallery-columns-7 .gallery-item {
+	margin-left: 2%;
+	margin-right: auto;
+}
+
+.gallery-columns-7 .gallery-item:nth-of-type(7n - 7) {
+	margin-left: 0;
+	clear: left;
+	margin-right: auto;
+}
+
+.gallery-columns-8 .gallery-item {
+	margin-left: 2%;
+	margin-right: auto;
+}
+
+.gallery-columns-8 .gallery-item:nth-of-type(8n - 8) {
+	margin-left: 0;
+	clear: left;
+	margin-right: auto;
+}
+
+.gallery-columns-9 .gallery-item {
+	margin-left: 2%;
+	margin-right: auto;
+}
+
+.gallery-columns-9 .gallery-item:nth-of-type(9n - 9) {
+	margin-left: 0;
+	clear: left;
+	margin-right: auto;
+}
+
+/* =Navigation
+----------------------------------------------- */
+
+.site-main [class*="navigation"] .nav-previous {
+	float: right;
+}
+
+.site-main [class*="navigation"] .nav-next {
+	float: left;
+	text-align: left;
+}
+
+.paging-navigation .nav-next,
+.post-navigation .nav-next,
+.comment-navigation .nav-next {
+	padding-right: 5px;
+	padding-left: 0;
+}
+
+.paging-navigation .nav-previous,
+.post-navigation .nav-previous,
+.comment-navigation .nav-previous {
+	padding-left: 5px;
+	padding-right: 0;
+}
+
+/* =Comments
+----------------------------------------------- */
+
+.comment-meta .avatar {
+	float: right;
+	margin: -15px -15px 0 15px;
+	border-left: 15px solid white;
+	border-right: none;
+}
+
+.comment-content {
+	margin-right: 71px;
+	margin-left: auto;
+}
+
+li.comment .comment-respond {
+	margin-right: 71px;
+	margin-left: auto;
+}
+
+.reply {
+	left: 15px;
+	right: auto;
+}
+
+#cancel-comment-reply-link {
+	float: left;
+}
+
+.children .avatar {
+	border-right: 15px solid white;
+	border-left: none;
+}
+
+.children .depth-2 .avatar {
+	margin-right: 0px;
+	margin-left: auto;
+}
+
+.children .depth-2 .comment-content {
+	margin-right: 101px;
+	margin-left: auto;
+}
+
+.children .depth-2 .comment-respond {
+	margin-right: 101px;
+	margin-left: auto;
+}
+
+.children .depth-3 .avatar {
+	margin-right: 15px;
+	margin-left: auto;
+}
+
+.children .depth-3 .comment-content {
+	margin-right: 116px;
+	margin-left: auto;
+}
+
+.children .depth-3 .comment-respond {
+	margin-right: 116px;
+	margin-left: auto;
+}
+
+.children .depth-4 .avatar {
+	margin-right: 30px;
+	margin-left: auto;
+}
+
+.children .depth-4 .comment-content {
+	margin-right: 131px;
+	margin-left: auto;
+}
+
+.children .depth-4 .comment-respond {
+	margin-right: 131px;
+	margin-left: auto;
+}
+
+.children .depth-5 .avatar {
+	margin-right: 45px;
+	margin-left: auto;
+}
+
+.children .depth-5 .comment-content {
+	margin-right: 146px;
+	margin-left: auto;
+}
+
+.children .depth-5 .comment-respond {
+	margin-right: 146px;
+	margin-left: auto;
+}
+
+.children .depth-6 .avatar {
+	margin-right: 60px;
+	margin-left: auto;
+}
+
+.children .depth-6 .comment-content {
+	margin-right: 161px;
+	margin-left: auto;
+}
+
+.children .depth-6 .comment-respond {
+	margin-right: 161px;
+	margin-left: auto;
+}
+
+.children .depth-7 .avatar {
+	margin-right: 75px;
+	margin-left: auto;
+}
+
+.children .depth-7 .comment-content {
+	margin-right: 176px;
+	margin-left: auto;
+}
+
+.children .depth-7 .comment-respond {
+	margin-right: 176px;
+	margin-left: auto;
+}
+
+.children .depth-8 .avatar {
+	margin-right: 90px;
+	margin-left: auto;
+}
+
+.children .depth-8 .comment-content {
+	margin-right: 191px;
+	margin-left: auto;
+}
+
+.children .depth-8 .comment-respond {
+	margin-right: 191px;
+	margin-left: auto;
+}
+
+.children .depth-9 .avatar {
+	margin-right: 105px;
+	margin-left: auto;
+}
+
+.children .depth-9 .comment-content {
+	margin-right: 206px;
+	margin-left: auto;
+}
+
+.children .depth-9 .comment-respond {
+	margin-right: 206px;
+	margin-left: auto;
+}
+
+.children .depth-10 .avatar {
+	margin-right: 120px;
+	margin-left: auto;
+}
+
+.children .depth-10 .comment-content {
+	margin-right: 221px;
+	margin-left: auto;
+}
+
+.children .depth-10 .comment-respond {
+	margin-right: 221px;
+	margin-left: auto;
+}
+
+/* =Reply Form
+----------------------------------------------- */
+
+.comment-form .form-submit input[type="submit"] {
+	float: left;
+}
+
+.comment-form-author,
+.comment-form-email {
+	float: right;
+}
+
+.comment-form-author {
+	padding-left: 15px;
+	padding-right: 0;
+}
+
+.comment-form-email {
+	padding-right: 15px;
+	padding-left: 0;
+}
+
+/* =Widgets
+----------------------------------------------- */
+#secondary {
+	margin-right: -15px;
+	margin-left: -15px;
+}
+
+#secondary .widget {
+	float: right;
+}
+
+.widget ul {
+	margin-right: 0;
+	margin-left: auto;
+}
+
+.widget ul ul {
+	margin-right: 25px;
+	margin-left: auto;
+}
+
+.widget_rss li .rsswidget {
+	float: right;
+}
+
+.widget_rss li .rss-date {
+	float: left;
+}
+
+@media (max-width: 768px) {
+
+	.widget ul {
+		margin-right: 0;
+		margin-left: auto;
+	}
+
+	.widget ul ul {
+		margin-right: 25px;
+		margin-left: auto;
+	}
+
+	.widget_rss li .rsswidget {
+		float: right;
+	}
+
+	.widget_rss li .rss-date {
+		float: left;
+	}
+}
+
+@media (max-width: 400px) {
+
+	#secondary .widget {
+		float: right;
+	}
+
+	.widget ul {
+		margin-right: 0;
+		margin-left: auto;
+	}
+
+	.widget ul ul {
+		margin-right: 25px;
+		margin-left: auto;
+	}
+
+	.widget_rss li .rsswidget {
+		float: right;
+	}
+
+	.widget_rss li .rss-date {
+		float: left;
+	}
+}
+
+
+/* Generated by the RTLer - http://wordpress.org/extend/plugins/rtler/ */
