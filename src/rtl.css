@@ -260,7 +260,8 @@ li.comment .comment-respond {
 
 .children .avatar {
 	border-right: 15px solid white;
-	border-left: none;
+	/* To override non-rtl styles. */
+	margin-left: 15px !important;
 }
 
 .children .depth-2 .avatar {
