@@ -29,9 +29,9 @@
 		 * on whether the menu was already visible.
 		 */
 		if ( $body.hasClass( 'menu-visible' ) ) {
-			$body.addClass( 'right' );
+			$body.addClass( 'close' );
 		} else {
-			$body.addClass( 'left' );
+			$body.addClass( 'open' );
 		}
 
 		/**
@@ -42,7 +42,7 @@
 		 */
 		$page.on( transitionEnd, function() {
 			$body
-				.removeClass( 'animating left right' )
+				.removeClass( 'animating open close' )
 				.toggleClass( 'menu-visible' );
 
 			$page.off( transitionEnd );

@@ -38,19 +38,19 @@
 		}
 
 		/***
-		 * If the left class is present then transform
+		 * If the open class is present then transform
 		 * the #page element 240px to the left.
 		 */
-		.animating.left & {
+		.animating.open & {
 			transform: translate3d( 240px, 0, 0 );
 			-webkit-transform: translate3d( 240px, 0, 0 );
 		}
 
 		/***
-		 * If the right class is present then transform
+		 * If the close class is present then transform
 		 * the #page element 240px to the right.
 		 */
-		.animating.right & {
+		.animating.close & {
 			transform: translate3d( -240px, 0, 0 );
 			-webkit-transform: translate3d( -240px, 0, 0 );
 		}
@@ -60,8 +60,8 @@
 	 * If the menu-visible class is present then
 	 * shift the #page 240px from the right edge
 	 * via position: absolute to keep it in the
-	 * open position. When .animating, .left and
-	 * .right classes are not present the CSS
+	 * open position. When .animating, .open and
+	 * .close classes are not present the CSS
 	 * transform does not apply to #page.
 	 */
 	.menu-visible {
