@@ -75,7 +75,7 @@ li > ol {
 }
 
 .menu-toggle {
-	right: 0;
+	right: 20px;
 	left: auto;
 }
 
@@ -451,48 +451,45 @@ li.comment .comment-respond {
 
 @media (max-width: 768px) {
 
-	.widget ul {
-		margin-right: 0;
-		margin-left: auto;
+	#content {
+		right: -240px;
+		left: 0;
 	}
 
-	.widget ul ul {
-		margin-right: 25px;
-		margin-left: auto;
+	#content #primary {
+		margin: 0 -260px 0 0;
 	}
 
-	.widget_rss li .rsswidget {
-		float: right;
+	#content .site-main {
+		margin: 0 260px 0 0;
 	}
 
-	.widget_rss li .rss-date {
-		float: left;
+	.animating.open .menu-toggle,
+	.animating.open #content {
+		transform: translate3d( -240px, 0, 0 );
+		-webkit-transform: translate3d( -240px, 0, 0 );
 	}
+
+	.animating.close .menu-toggle,
+	.animating.close #content {
+		transform: translate3d( 240px, 0, 0 );
+		-webkit-transform: translate3d( 240px, 0, 0 );
+	}
+
+	.menu-visible .menu-toggle {
+		left: auto;
+		right: 260px;
+	}
+
+	.menu-visible #content {
+		right: 0;
+	}
+
+
 }
 
 @media (max-width: 400px) {
 
-	#secondary .widget {
-		float: right;
-	}
-
-	.widget ul {
-		margin-right: 0;
-		margin-left: auto;
-	}
-
-	.widget ul ul {
-		margin-right: 25px;
-		margin-left: auto;
-	}
-
-	.widget_rss li .rsswidget {
-		float: right;
-	}
-
-	.widget_rss li .rss-date {
-		float: left;
-	}
 }
 
 
