@@ -489,7 +489,30 @@ li.comment .comment-respond {
 }
 
 @media (max-width: 400px) {
-
+	#page {
+		padding-left: 0;
+	}
+	.entry-header {
+		margin-left: 30px;
+		margin-right: 0;
+	}
+	.entry-meta .genericon {
+		left: -45px;
+		right: auto;
+	}
+	.entry-summary .mobile-space {
+		float: left;
+	}
+	.comment-content,
+	.comment-respond {
+		margin-right: 0 !important;
+	}
+	.depth-2 {
+		margin-right: $spacing;
+	}
+	.reply {
+		right: auto;
+	}
 }
 
 
