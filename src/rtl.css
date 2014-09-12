@@ -452,9 +452,17 @@ li.comment .comment-respond {
 
 @media (max-width: 768px) {
 
+	#masthead {
+		width: 20px;
+	}
+
+	#masthead > * {
+		display: none;
+	}
+
 	#content {
 		right: -240px;
-		left: 0;
+		left: auto;
 	}
 
 	#content #primary {
@@ -480,6 +488,14 @@ li.comment .comment-respond {
 	.menu-visible .menu-toggle {
 		left: auto;
 		right: 260px;
+	}
+
+	.menu-visible #masthead {
+		width: 260px;
+	}
+
+	.menu-visible #masthead > * {
+		display: block;
 	}
 
 	.menu-visible #content {
