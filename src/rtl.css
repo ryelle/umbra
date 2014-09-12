@@ -451,18 +451,9 @@ li.comment .comment-respond {
 }
 
 @media (max-width: 768px) {
-
-	#masthead {
-		width: 20px;
-	}
-
-	#masthead > * {
-		display: none;
-	}
-
 	#content {
 		right: -240px;
-		left: auto;
+		left: auto !important;
 	}
 
 	#content #primary {
@@ -475,27 +466,19 @@ li.comment .comment-respond {
 
 	.animating.open .menu-toggle,
 	.animating.open #content {
-		transform: translate3d( -240px, 0, 0 );
-		-webkit-transform: translate3d( -240px, 0, 0 );
+		transform: translate3d( -180px, 0, 0 );
+		-webkit-transform: translate3d( -180px, 0, 0 );
 	}
 
 	.animating.close .menu-toggle,
 	.animating.close #content {
-		transform: translate3d( 240px, 0, 0 );
-		-webkit-transform: translate3d( 240px, 0, 0 );
+		transform: translate3d( 180px, 0, 0 );
+		-webkit-transform: translate3d( 180px, 0, 0 );
 	}
 
 	.menu-visible .menu-toggle {
 		left: auto;
 		right: 260px;
-	}
-
-	.menu-visible #masthead {
-		width: 260px;
-	}
-
-	.menu-visible #masthead > * {
-		display: block;
 	}
 
 	.menu-visible #content {
