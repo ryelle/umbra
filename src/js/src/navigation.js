@@ -45,6 +45,10 @@
 				.removeClass( 'animating open close' )
 				.toggleClass( 'menu-visible' );
 
+			if ( $body.hasClass('rtl') ) {
+				$( window ).scrollLeft( '100%' );
+			}
+
 			$page.off( transitionEnd );
 		});
 
