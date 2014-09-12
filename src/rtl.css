@@ -466,14 +466,14 @@ li.comment .comment-respond {
 
 	.animating.open .menu-toggle,
 	.animating.open #content {
-		transform: translate3d( -180px, 0, 0 );
-		-webkit-transform: translate3d( -180px, 0, 0 );
+		transform: translate3d( -240px, 0, 0 );
+		-webkit-transform: translate3d( -240px, 0, 0 );
 	}
 
 	.animating.close .menu-toggle,
 	.animating.close #content {
-		transform: translate3d( 180px, 0, 0 );
-		-webkit-transform: translate3d( 180px, 0, 0 );
+		transform: translate3d( 240px, 0, 0 );
+		-webkit-transform: translate3d( 240px, 0, 0 );
 	}
 
 	.menu-visible .menu-toggle {
@@ -484,8 +484,6 @@ li.comment .comment-respond {
 	.menu-visible #content {
 		right: 0;
 	}
-
-
 }
 
 @media (max-width: 400px) {
