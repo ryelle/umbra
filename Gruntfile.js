@@ -83,6 +83,17 @@ module.exports = function(grunt) {
 			}
 		},
 
+		wp_theme_check: {
+			options: {
+				path: '/srv/www/wordpress-trunk'
+			},
+			dist: {
+				options: {
+					theme: THEME_NAME + '/' + BUILD_DIR.replace('/','')
+				}
+			}
+		},
+
 		pageres: {
 			dist: {
 				options: {
@@ -122,7 +133,8 @@ module.exports = function(grunt) {
 	// Build task.
 	grunt.registerTask('dev',     ['sass:dev', 'concat:dev']);
 	grunt.registerTask('build',   ['clean:all', 'copy:all', 'sass:dist', 'concat:dist', 'clean:dist']);
-	grunt.registerTask('publish', ['build', 'compress:main']);
+	grunt.registerTask('test',    ['wp_theme_check:dist']);
+	grunt.registerTask('publish', ['build', 'test', 'compress:main']);
 
 	grunt.registerTask('screenshot', ['pageres']);
 
