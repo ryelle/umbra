@@ -18,7 +18,7 @@ Umbra is crafted to look great at any screen size.
 
 ###Jetpack enabled
 
-Supercharge Umbra with Jetpack galleries, carousels, infinite scroll, and Photon.
+Supercharge Umbra with Jetpack galleries, carousels, infinite scroll, Tonesque, and Photon.
 
 ###Licenses
 License: GNU General Public License v2.0
