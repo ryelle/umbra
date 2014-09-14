@@ -26,7 +26,7 @@ function umbra_customize_register( $wp_customize ) {
 
 		$wp_customize->add_setting( 'umbra_use_tonesque', array(
 			'default' => false,
-			'sanitize_callback' => 'umbra_sanitize_bool'
+			'sanitize_callback' => 'umbra_sanitize_bool',
 		) );
 
 		$wp_customize->add_control( new Umbra_Customize_Control( $wp_customize, 'umbra_use_tonesque', array(
