@@ -26,6 +26,7 @@ function umbra_customize_register( $wp_customize ) {
 
 		$wp_customize->add_setting( 'umbra_use_tonesque', array(
 			'default' => false,
+			'sanitize_callback' => 'umbra_sanitize_bool'
 		) );
 
 		$wp_customize->add_control( new Umbra_Customize_Control( $wp_customize, 'umbra_use_tonesque', array(
@@ -41,7 +42,8 @@ function umbra_customize_register( $wp_customize ) {
 	} else {
 
 		$wp_customize->add_setting( 'umbra_use_tonesque', array(
-			'default' => true,
+			'default'           => true,
+			'sanitize_callback' => 'umbra_sanitize_bool',
 		) );
 
 		$wp_customize->add_control( 'umbra_use_tonesque', array(
@@ -76,6 +78,17 @@ function umbra_customize_preview_js() {
 }
 add_action( 'customize_preview_init', 'umbra_customize_preview_js' );
 
+/**
+ * Sanitization function to return a boolean value
+ * @param  mixed  $maybebool  Value that should be either true or false.
+ * @return bool  A boolean.
+ */
+function umbra_sanitize_bool( $maybebool ){
+	if ( $maybebool == true ){
+		return true;
+	}
+	return false;
+}
 
 if ( class_exists( 'WP_Customize_Color_Control' ) ) {
 	/**
