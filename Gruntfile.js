@@ -19,6 +19,7 @@ module.exports = function(grunt) {
 				src: [
 					'node_modules',
 					'sass',
+					'js/src',
 					'README.md',
 					'layout',
 					'.sass-cache'
