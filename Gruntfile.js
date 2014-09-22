@@ -84,6 +84,37 @@ module.exports = function(grunt) {
 			}
 		},
 
+		makepot: {
+			dev: {
+				options: {
+					cwd: SOURCE_DIR,
+					domainPath: '/languages',
+					mainFile: 'style.css',
+					potFilename: THEME_NAME + '.pot',
+					potHeaders: {
+						poedit: true,
+						'x-poedit-keywordslist': true
+					},
+					type: 'wp-theme',
+					updateTimestamp: false
+				}
+			},
+			dist: {
+				options: {
+					cwd: BUILD_DIR,
+					domainPath: '/languages',
+					mainFile: 'style.css',
+					potFilename: THEME_NAME + '.pot',
+					potHeaders: {
+						poedit: true,
+						'x-poedit-keywordslist': true
+					},
+					type: 'wp-theme',
+					updateTimestamp: false
+				}
+			}
+		},
+
 		wp_theme_check: {
 			options: {
 				path: '/srv/www/wordpress-trunk'
@@ -132,10 +163,10 @@ module.exports = function(grunt) {
 	// Register tasks.
 
 	// Build task.
-	grunt.registerTask('dev',     ['sass:dev', 'concat:dev']);
+	grunt.registerTask('dev',     ['sass:dev', 'concat:dev', 'makepot:dev']);
 	grunt.registerTask('build',   ['clean:all', 'copy:all', 'sass:dist', 'concat:dist', 'clean:dist']);
 	grunt.registerTask('test',    ['wp_theme_check:dist']);
-	grunt.registerTask('publish', ['build', 'test', 'compress:main']);
+	grunt.registerTask('publish', ['build', 'makepot:dist', 'test', 'compress:main']);
 
 	grunt.registerTask('screenshot', ['pageres']);
 
