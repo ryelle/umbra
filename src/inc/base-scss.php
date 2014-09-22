@@ -212,7 +212,7 @@ a {
 
 .entry-title,
 .entry-title a,
-.no-title a {
+.no-title .entry-summary a {
 	color: $header-color;
 }
 
