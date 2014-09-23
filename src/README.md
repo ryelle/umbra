@@ -14,7 +14,7 @@ Blurb
 
 ###Full responsive
 
-Umbra is crafted to look great at any screen size.
+Umbra is fully responsive, working well on everything from your phone to your large monitor.
 
 ###Jetpack enabled
 
