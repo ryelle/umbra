@@ -74,7 +74,9 @@ input[type="submit"] {
 	color: white;
 	background-color: $header-color;
 
-	&:hover {
+	&:hover,
+	&:active,
+	&:focus {
 		background-color: darken( $header-color, 10% );
 	}
 }
@@ -106,7 +108,9 @@ textarea {
 		width: 25%;
 		background-color: $header-color;
 
-		&:hover {
+		&:hover,
+		&:focus,
+		&:active {
 			background-color: darken( $header-color, 10% );
 		}
 	}

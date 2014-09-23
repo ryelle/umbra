@@ -125,7 +125,9 @@ input[type="submit"] {
 	color: contrast-color( $action-color );
 	background-color: $action-color;
 
-	&:hover {
+	&:hover,
+	&:active,
+	&:focus {
 		color: contrast-color( darken( $action-color, 10% ) );
 		background-color: darken( $action-color, 10% );
 	}
@@ -306,7 +308,9 @@ a {
 	.search-submit {
 		background-color: $header-color;
 
-		&:hover {
+		&:hover,
+		&:active,
+		&:focus {
 			background-color: darken( $header-color, 10% );
 		}
 	}

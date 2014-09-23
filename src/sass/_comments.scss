@@ -170,6 +170,7 @@ li.pingback + li.comment .comment-meta {
 
 		input[type="submit"] {
 			float: right;
+			border: none !important;
 			@include font-size( 14 );
 		}
 	}
