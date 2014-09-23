@@ -60,7 +60,7 @@
 	z-index: 100; // Should be higher than anything else, but still below admin bar.
 	padding: $alt-spacing/2;
 	color: white;
-	background: $sidebar-bg-color; // @color
+	background: $sidebar-bg-color;
 	font-family: $alt-font;
 	@include font-size(14);
 	text-transform: uppercase;
@@ -73,4 +73,55 @@
 		color: white;
 		text-decoration: none;
 	}
+}
+
+/* Social menu */
+.social-menu {
+	margin-top: 20px !important;
+
+	li {
+		display: inline-block;
+		margin-bottom: 0 !important;
+	}
+
+	a {
+		@include genericon;
+		margin: 5px 2px 0;
+		padding: 0 !important;
+		width: 42px;
+		height: 40px;
+		font-size: 32px;
+		overflow: hidden;
+
+		&:before {
+			padding: 5px;
+			display: block;
+		}
+	}
+
+	a[href*="github"]:before { @include genericon-github; }
+	a[href*="dribbble"]:before,
+	a[href*="drbl.in"]:before { @include genericon-dribbble; }
+	a[href*="twitter"]:before { @include genericon-twitter; }
+	a[href*="facebook"]:before { @include genericon-facebook; }
+	a[href*="wordpress"]:before { @include genericon-wordpress; }
+	a[href*="googleplus"]:before { @include genericon-googleplus; }
+	a[href*="linkedin"]:before,
+	a[href*="lnkd.in"]:before { @include genericon-linkedin; }
+	a[href*="pinterest"]:before { @include genericon-pinterest; }
+	a[href*="flickr"]:before { @include genericon-flickr; }
+	a[href*="vimeo"]:before { @include genericon-vimeo; }
+	a[href*="youtube"]:before,
+	a[href*="youtu.be"]:before { @include genericon-youtube; }
+	a[href*="tumblr"]:before { @include genericon-tumblr; }
+	a[href*="instagram"]:before { @include genericon-instagram; }
+	a[href*="codepen"]:before { @include genericon-codepen; }
+	a[href*="polldaddy"]:before { @include genericon-polldaddy; }
+	a[href*="path"]:before { @include genericon-path; }
+	a[href*="skype"]:before { @include genericon-skype; }
+	a[href*="digg"]:before { @include genericon-digg; }
+	a[href*="reddit"]:before { @include genericon-reddit; }
+	a[href*="stumbleupon"]:before { @include genericon-stumbleupon; }
+	a[href*="pocket"]:before { @include genericon-pocket; }
+	a[href*="dropbox"]:before { @include genericon-dropbox; }
 }

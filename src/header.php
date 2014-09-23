@@ -47,4 +47,8 @@
 			<nav id="site-navigation" class="main-navigation" role="navigation">
 				<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 			</nav><!-- #site-navigation -->
+
+			<nav id="social-navigation" class="social-navigation main-navigation">
+				<?php wp_nav_menu( array( 'theme_location' => 'social', 'menu_class' => 'social-menu' ) ); ?>
+			</nav><!-- #social-navigation -->
 		</header><!-- #masthead -->
