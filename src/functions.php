@@ -12,7 +12,7 @@ if ( ! defined( 'UMBRA_VERSION' ) ) {
  * Set the content width based on the theme's design and stylesheet.
  */
 if ( ! isset( $content_width ) ) {
-	$content_width = 640; /* pixels */
+	$content_width = 490; /* pixels */
 }
 
 if ( ! function_exists( 'umbra_setup' ) ) :
