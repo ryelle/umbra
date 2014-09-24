@@ -124,3 +124,20 @@ textarea {
 		padding: 3px $spacing;
 	}
 }
+
+/* =Jetpack Subscribe Form
+----------------------------------------------- */
+
+#subscribe-email {
+	margin-bottom: 0;
+	input {
+		padding: 8px 5px;
+	}
+}
+
+#subscribe-email,
+#subscribe-submit {
+	input {
+		width: 100%;
+	}
+}
