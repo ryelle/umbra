@@ -148,6 +148,11 @@
 .entry-title,
 .entry-title a,
 .no-title .entry-summary a {
+	color: $header-color;
+}
+
+.entry-title,
+.entry-title a {
 	line-height: 1.3;
 	color: $header-color;
 }
