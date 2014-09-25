@@ -37,9 +37,12 @@
 
 .widget {
 	margin: 0 0 $spacing * 2;
+	@include font-size( 18 );
+	line-height: 1.4;
 
 	h1 {
-		@include font-size($header2-size);
+		@include font-size( 20 );
+		line-height: 1.3;
 	}
 
 	/* Make sure select elements fit in widgets */
