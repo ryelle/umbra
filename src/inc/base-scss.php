@@ -11,14 +11,15 @@ $umbra_base_scss = <<<'SCSS'
 
 // Use sassme to grab the current hsl of these vars, then adjust with the hue of the current color? adjust hue for alt
 $base-color: saturate( $base-color, 5% );
+$base-hue: hue($base-color);
 
-$body-background: hsl( hue($base-color), saturation(#f9f9f9), lightness(#f9f9f9) );
-$text-color: hsl( hue($base-color), saturation(#424046), lightness(#424046) );
+$body-background: hsl( $base-hue, 0, 97.64706% );
+$text-color: hsl( $base-hue, 4.47761%, 26.27451% );
 
-$header-color: hsl( hue($base-color), saturation(#6b6479) + 15, lightness(#6b6479) - 10 );
-$action-color:  hsl( hue($base-color), saturation(#6b6479), lightness(#6b6479) );
-$highlight-color: desaturate( hsl( hue($base-color) + 150, saturation(#e0bc64), lightness(#e0bc64) ), 20% );
-$alt-color: hsl( hue($base-color), saturation(#b5b1bd), lightness(#b5b1bd) );
+$header-color: hsl( $base-hue, 24.50226%, 33.33333% );
+$action-color: hsl( $base-hue, 9.50226%, 43.33333% );
+$highlight-color: desaturate( hsl( $base-hue + 150, 53.333336%, 63.52941% ) );
+$alt-color: hsl( $base-hue, 8.33333%, 71.76471% );
 
 $main-bg-color: white;
 
@@ -52,15 +53,15 @@ $main-bg-color: white;
 @if ( hue( $base-color ) < 5 ) {
 
 	$saturation: 0;
-	$nav-text-color: hsl( hue($base-color), $saturation, lightness(#e9e3f4) );
+	$nav-text-color: hsl( $base-hue, $saturation, 92.35294% );
 	$nav-bg-color: darken( $sidebar-bg-color, 10% );
 	$nav-current-bg-color: darken( $sidebar-bg-color, 15% );
 
 } @else {
 
 	// Main menu colors
-	$saturation: saturation( #e9e3f4 );
-	$nav-text-color: hsl( hue($base-color), $saturation, lightness(#e9e3f4) );
+	$saturation: 43.58974%;
+	$nav-text-color: hsl( $base-hue, $saturation, 92.35294% );
 	$nav-bg-color: darken( $sidebar-bg-color, 10% );
 	$nav-current-bg-color: darken( $sidebar-bg-color, 15% );
 
