@@ -1,6 +1,7 @@
 /* jshint node:true */
 module.exports = function(grunt) {
 	var path = require('path'),
+		WP_DIR = '/srv/www/wordpress-trunk',
 		THEME_NAME = 'umbra',
 		SOURCE_DIR = 'src/',
 		BUILD_DIR = 'build/';
@@ -116,7 +117,7 @@ module.exports = function(grunt) {
 
 		wp_theme_check: {
 			options: {
-				path: '/srv/www/wordpress-trunk'
+				path: WP_DIR
 			},
 			dist: {
 				options: {

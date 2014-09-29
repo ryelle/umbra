@@ -107,8 +107,6 @@ if ( class_exists( 'WP_Customize_Color_Control' ) ) {
 			/**
 			 * Filter the default palettes passed to the color picker.
 			 *
-			 * @since 0.1.0
-			 *
 			 * @param array  $palettes  The array of selected hex colors for Iris's palettes.
 			 */
 			$palettes = apply_filters( 'umbra_default_palettes', array( '#e8eaf0', '#e0bc64', '#98cc7e', '#6bc1ce', '#598bd1', '#332c7c', '#966c8e', '#222') );
@@ -137,7 +135,6 @@ if ( class_exists( 'WP_Customize_Color_Control' ) ) {
 		 * Render the custom attributes for the control's input element.
 		 * Copied from WP_Customize_Control to provide backcompat
 		 *
-		 * @since 0.1.0
 		 * @access public
 		 */
 		public function input_attrs() {
@@ -153,8 +150,6 @@ if ( class_exists( 'WP_Customize_Color_Control' ) ) {
 		 *
 		 * Supports basic input types `text`, `checkbox`, `textarea`, `radio`, and `select`.
 		 * Additional input types such as `email`, `url`, `number`, `hidden` and `date` are supported implicitly.
-		 *
-		 * @since 3.4.0
 		 */
 		protected function render_content() {
 			switch ( $this->type ) {

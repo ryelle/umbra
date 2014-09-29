@@ -29,5 +29,10 @@ Genericons: GNU General Public License v2.0
 
 ### Changelog
 
+Version 0.1.1
+* Add a Social Menu option which displays in sidebar below main navigation.
+* Update thumbnail size to correct width
+* Misc style updates (button interaction, minor typography tweaks)
+
 Version 0.1.0
 * First public release

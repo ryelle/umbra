@@ -5,7 +5,7 @@
  * @package Umbra
  */
 if ( ! defined( 'UMBRA_VERSION' ) ) {
-	define( 'UMBRA_VERSION', '0.1.0' );
+	define( 'UMBRA_VERSION', '0.1.1' );
 }
 
 /**
@@ -109,8 +109,6 @@ add_action( 'wp_enqueue_scripts', 'umbra_scripts' );
  * localized. For languages that use characters not supported by either
  * font, the font can be disabled.
  *
- * @since Umbra 1.0
- *
  * @return string Font stylesheet or empty string if disabled.
  */
 function umbra_fonts_url() {
@@ -166,8 +164,6 @@ function umbra_fonts_url() {
  * }
  * add_action( 'wp_enqueue_scripts', 'mytheme_dequeue_fonts', 11 );
  *
- * @since Umbra 1.0
- *
  * @return void
  */
 function umbra_fonts() {
@@ -195,8 +191,6 @@ add_action( 'admin_enqueue_scripts', 'umbra_admin_fonts' );
  * Adds additional stylesheets to the TinyMCE editor if needed.
  *
  * @uses umbra_fonts_url() to get the Google Font stylesheet URL.
- *
- * @since Umbra 1.0
  *
  * @param string $mce_css CSS path to load in TinyMCE.
  * @return string

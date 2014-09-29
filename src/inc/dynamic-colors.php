@@ -108,8 +108,6 @@ class Umbra_ImageColors {
 			/**
 			 * Filter the sass used for dynamic color CSS generation
 			 *
-			 * @since 0.1.0
-			 *
 			 * @param string  $sass   The Sass used to generate the CSS
 			 * @param string  $color  The color picked from the image, used as
 			 *                        the $base-color for all other color variables
@@ -158,8 +156,6 @@ class Umbra_ImageColors {
 
 		/**
 		 * Filter the image url used as the "First image" for a post
-		 *
-		 * @since 0.1.0
 		 *
 		 * @param string  $the_image  The url of the selected first image (or Jetpack's default image)
 		 * @param int     $post_id    The ID of the post we want the image from
