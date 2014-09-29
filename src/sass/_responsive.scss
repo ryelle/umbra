@@ -7,17 +7,17 @@
 		padding-top: $alt-spacing * 2 + 20;
 	}
 
-	#masthead,
+	.site-header,
 	.site-content .site-header-bg {
 		z-index: 10; /* Make sure the z-index is lower than the #page */
 	}
 
-	#content {
+	.site-content {
 		position: relative;
 		left: -240px;
 		width: calc(100% + 240px);
 
-		#primary {
+		.content-area {
 			margin: 0 0 0 -260px;
 		}
 
@@ -26,7 +26,7 @@
 		}
 	}
 
-	#content,
+	.site-content,
 	.menu-toggle {
 		/***
 		 * If the animating class is present then apply
@@ -65,7 +65,7 @@
 	 * transform does not apply to #page.
 	 */
 	.menu-visible {
-		#content {
+		.site-content {
 			left: 0;
 		}
 		.menu-toggle {
@@ -75,7 +75,7 @@
 }
 
 @media (max-width: 600px) {
-	#secondary .widget {
+	.widget-area .widget {
 		float: none;
 		width: 100%;
 	}
@@ -98,7 +98,7 @@
 		@include font-size(17);
 		line-height: 1.4;
 	}
-	#page {
+	.site {
 		padding-right: 0;
 	}
 	.site-main {

@@ -1,6 +1,6 @@
 /* =Widgets
 ----------------------------------------------- */
-#secondary {
+.widget-area {
 	margin-top: $spacing * 2;
 	margin-left: -$alt-spacing/2;
 	margin-right: -$alt-spacing/2;
@@ -65,7 +65,7 @@
 }
 
 .widget_calendar {
-	#wp-calendar {
+	table {
 		max-width: 300px;
 	}
 

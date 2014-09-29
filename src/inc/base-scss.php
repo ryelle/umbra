@@ -144,7 +144,7 @@ a {
 	}
 }
 
-.site-content {
+.entry-content {
 	background-color: $main-bg-color;
 
 	$table-color: $sidebar-bg-color;
