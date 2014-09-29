@@ -206,7 +206,11 @@ msgstr ""
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:79
+#: functions.php:56
+msgid "Social Links"
+msgstr ""
+
+#: functions.php:80
 msgid "Sidebar"
 msgstr ""
 
@@ -265,7 +269,7 @@ msgid "Umbra"
 msgstr ""
 
 #. Theme URI of the plugin/theme
-msgid "http://themes.redradar.net/umbra/documentation"
+msgid "http://themes.redradar.net/introducing-umbra"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -305,7 +309,7 @@ msgctxt "noun"
 msgid "Comment"
 msgstr ""
 
-#: functions.php:122
+#: functions.php:121
 #. Translators: If there are characters in your language that are not
 #. * supported by Vollkorn, translate this to 'off'. Do not translate
 #. * into your own language.
@@ -313,7 +317,7 @@ msgctxt "Vollkorn font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:128
+#: functions.php:127
 #. Translators: If there are characters in your language that are not
 #. * supported by Neuton, translate this to 'off'. Do not translate into
 #. * your own language.
@@ -321,7 +325,7 @@ msgctxt "Neuton font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:134
+#: functions.php:133
 #. Translators: If there are characters in your language that are not
 #. * supported by Montserrat, translate this to 'off'. Do not translate
 #. * into your own language.
