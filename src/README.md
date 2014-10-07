@@ -29,6 +29,12 @@ Genericons: GNU General Public License v2.0
 
 ### Changelog
 
+Version 0.1.2
+* Add fallback fonts
+* Convert all static functions in base-scss to a static value, to avoid repeatedly running these functions.
+* Move google fonts to `add_editor_style`, removing `umbra_mce_css`.
+* Update editor_style, removing unecessary CSS.
+
 Version 0.1.1
 * Add a Social Menu option which displays in sidebar below main navigation.
 * Update thumbnail size to correct width

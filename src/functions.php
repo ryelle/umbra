@@ -5,7 +5,7 @@
  * @package Umbra
  */
 if ( ! defined( 'UMBRA_VERSION' ) ) {
-	define( 'UMBRA_VERSION', '0.1.1' );
+	define( 'UMBRA_VERSION', '0.1.2' );
 }
 
 /**
