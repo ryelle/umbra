@@ -5,12 +5,6 @@
 // configure the style from settings
 @import 'settings';
 
-// reset styles should stay at the top
-@import 'reset';
-
-// genericons
-@import 'genericons';
-
 // move mixins to their own partial
 @import 'mixins';
 
