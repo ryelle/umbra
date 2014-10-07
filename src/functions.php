@@ -40,7 +40,7 @@ function umbra_setup() {
 	add_theme_support( 'tonesque' );
 
 	// Add custom TinyMCE CSS
-	add_editor_style();
+	add_editor_style( array( 'editor-style.css', umbra_fonts_url() ) );
 
 	/*
 	 * Enable support for Post Thumbnails on posts and pages.
@@ -136,18 +136,18 @@ function umbra_fonts_url() {
 		$font_families = array();
 
 		if ( 'off' !== $vollkorn )
-			$font_families[] = 'Vollkorn:700,700italic';
+			$font_families[] = urlencode( 'Vollkorn:700,700italic' );
 
 		if ( 'off' !== $neuton )
-			$font_families[] = 'Neuton:400,700,400italic';
+			$font_families[] = urlencode( 'Neuton:400,700,400italic' );
 
 		if ( 'off' !== $montserrat )
-			$font_families[] = 'Montserrat:400,700';
+			$font_families[] = urlencode( 'Montserrat:400,700' );
 
 		$protocol = is_ssl() ? 'https' : 'http';
 		$query_args = array(
 			'family' => implode( '|', $font_families ),
-			'subset' => 'latin,latin-ext',
+			'subset' => urlencode( 'latin,latin-ext' ),
 		);
 		$fonts_url = add_query_arg( $query_args, "$protocol://fonts.googleapis.com/css" );
 	}
@@ -186,29 +186,6 @@ function umbra_admin_fonts( $hook_suffix ) {
 
 }
 add_action( 'admin_enqueue_scripts', 'umbra_admin_fonts' );
-
-/**
- * Adds additional stylesheets to the TinyMCE editor if needed.
- *
- * @uses umbra_fonts_url() to get the Google Font stylesheet URL.
- *
- * @param string $mce_css CSS path to load in TinyMCE.
- * @return string
- */
-function umbra_mce_css( $mce_css ) {
-	$fonts_url = umbra_fonts_url();
-
-	if ( empty( $fonts_url ) )
-		return $mce_css;
-
-	if ( ! empty( $mce_css ) )
-		$mce_css .= ',';
-
-	$mce_css .= esc_url_raw( str_replace( ',', '%2C', $fonts_url ) );
-
-	return $mce_css;
-}
-add_filter( 'mce_css', 'umbra_mce_css' );
 
 /**
  * Flush rewrite rules when the theme is activated
