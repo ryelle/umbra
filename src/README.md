@@ -21,11 +21,18 @@ Umbra is fully responsive, working well on everything from your phone to your la
 Supercharge Umbra with Jetpack galleries, carousels, infinite scroll, and Photon.
 
 ###Licenses
-License: GNU General Public License v2.0
-
+Umbra is released under GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Genericons: GNU General Public License v2.0
+Umbra bundles the following third-party resources:
+
+Genericons icon font, Copyright 2014 Automattic
+Genericons are licensed under the terms of the GNU GPL, Version 2 (or later)
+Source: http://www.genericons.com
+
+HTML5Shiv Copyright (c) 2014 Alexander Farkas (aFarkas).
+Dual licensed under the MIT or GPL Version 2 licenses
+Source: https://github.com/aFarkas/html5shiv
 
 ### Changelog
 
