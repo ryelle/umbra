@@ -36,6 +36,9 @@ Source: https://github.com/aFarkas/html5shiv
 
 ### Changelog
 
+Version 0.1.3
+* Update Copyright information for bundled resources
+
 Version 0.1.2
 * Add fallback fonts
 * Convert all static functions in base-scss to a static value, to avoid repeatedly running these functions.
