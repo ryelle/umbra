@@ -144,12 +144,11 @@ function umbra_fonts_url() {
 		if ( 'off' !== $montserrat )
 			$font_families[] = urlencode( 'Montserrat:400,700' );
 
-		$protocol = is_ssl() ? 'https' : 'http';
 		$query_args = array(
 			'family' => implode( '|', $font_families ),
 			'subset' => urlencode( 'latin,latin-ext' ),
 		);
-		$fonts_url = add_query_arg( $query_args, "$protocol://fonts.googleapis.com/css" );
+		$fonts_url = add_query_arg( $query_args, "//fonts.googleapis.com/css" );
 	}
 
 	return $fonts_url;
