@@ -1,24 +1,23 @@
+/*global jQuery */
 /**
-* navigation.js
-*
-* Handles toggling the navigation menu for small screens.
-*/
+ * navigation.js
+ *
+ * Handles toggling the navigation menu for small screens.
+ */
 ( function( $ ) {
-
 	/**
 	 * Run this code when the #toggle-menu link has been tapped
 	 * or clicked
 	 */
-	$( '.menu-toggle' ).on( 'touchstart click', function(e) {
-		e.stopPropagation();
-		e.preventDefault();
-
+	$( '.menu-toggle' ).on( 'touchstart click', function( e ) {
 		var $body = $( 'body' ),
 			$page = $( '#content' ),
-			$sidebar = $( '#masthead, .site-header-bg' ),
 
 			/* Cross browser support for CSS "transition end" event */
 			transitionEnd = 'transitionend webkitTransitionEnd otransitionend MSTransitionEnd';
+
+		e.stopPropagation();
+		e.preventDefault();
 
 		/* When the toggle menu link is clicked, animation starts */
 		$body.addClass( 'animating' );
@@ -45,13 +44,11 @@
 				.removeClass( 'animating open close' )
 				.toggleClass( 'menu-visible' );
 
-			if ( $body.hasClass('rtl') ) {
+			if ( $body.hasClass( 'rtl' ) ) {
 				$( window ).scrollLeft( '100%' );
 			}
 
 			$page.off( transitionEnd );
-		});
-
-	});
-
-})( jQuery );
+		} );
+	} );
+} )( jQuery );

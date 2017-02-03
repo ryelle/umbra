@@ -1,18 +1,17 @@
 /* jshint node:true */
-module.exports = function(grunt) {
-	var path = require('path'),
-		WP_DIR = '/srv/www/wordpress-trunk',
+module.exports = function( grunt ) {
+	var WP_DIR = '/srv/www/wordpress-trunk',
 		THEME_NAME = 'umbra',
 		SOURCE_DIR = 'src/',
 		BUILD_DIR = 'build/';
 
 	// Load tasks.
-	require('matchdep').filterDev('grunt-*').forEach( grunt.loadNpmTasks );
+	require( 'matchdep' ).filterDev( 'grunt-*' ).forEach( grunt.loadNpmTasks );
 
 	// Project configuration.
-	grunt.initConfig({
+	grunt.initConfig( {
 		clean: {
-			all: [BUILD_DIR],
+			all: [ BUILD_DIR ],
 			dist: {
 				dot: true,
 				expand: true,
@@ -92,7 +91,7 @@ module.exports = function(grunt) {
 					mainFile: 'style.css',
 					potFilename: THEME_NAME + '.pot',
 					potHeaders: {
-						poedit: true,
+						'poedit': true,
 						'x-poedit-keywordslist': true
 					},
 					type: 'wp-theme',
@@ -106,7 +105,7 @@ module.exports = function(grunt) {
 					mainFile: 'style.css',
 					potFilename: THEME_NAME + '.pot',
 					potHeaders: {
-						poedit: true,
+						'poedit': true,
 						'x-poedit-keywordslist': true
 					},
 					type: 'wp-theme',
@@ -121,7 +120,7 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				options: {
-					theme: THEME_NAME + '/' + BUILD_DIR.replace('/','')
+					theme: THEME_NAME + '/' + BUILD_DIR.replace( '/', '' )
 				}
 			}
 		},
@@ -158,19 +157,18 @@ module.exports = function(grunt) {
 				tasks: ['concat:dev']
 			}
 		}
-	});
+	} );
 
 	// Register tasks.
 
 	// Build task.
-	grunt.registerTask('dev',     ['sass:dev', 'concat:dev', 'makepot:dev']);
-	grunt.registerTask('build',   ['clean:all', 'copy:all', 'sass:dist', 'concat:dist', 'clean:dist']);
-	grunt.registerTask('test',    ['wp_theme_check:dist']);
-	grunt.registerTask('publish', ['build', 'makepot:dist', 'test', 'compress:main']);
+	grunt.registerTask( 'dev', ['sass:dev', 'concat:dev', 'makepot:dev'] );
+	grunt.registerTask( 'build', ['clean:all', 'copy:all', 'sass:dist', 'concat:dist', 'clean:dist'] );
+	grunt.registerTask( 'test', ['wp_theme_check:dist'] );
+	grunt.registerTask( 'publish', ['build', 'makepot:dist', 'test', 'compress:main'] );
 
-	grunt.registerTask('screenshot', ['pageres']);
+	grunt.registerTask( 'screenshot', ['pageres'] );
 
 	// Default task.
-	grunt.registerTask('default', ['dev']);
-
+	grunt.registerTask( 'default', ['dev'] );
 };

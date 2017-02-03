@@ -16,5 +16,13 @@
     "matchdep": "~0.1.2",
     "grunt-wp-theme-check": "~0.1.2",
     "grunt-wp-i18n": "~0.4.8"
+  },
+  "scripts": {
+    "test": "grunt test",
+    "build": "grunt build",
+    "dev": "grunt dev",
+    "watch": "grunt watch",
+    "lint": "eslint .",
+    "zip": "grunt publish"
   }
 }

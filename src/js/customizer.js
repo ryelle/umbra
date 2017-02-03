@@ -1,3 +1,4 @@
+/*global umbra, wp, jQuery, _ */
 /**
  * Theme Customizer enhancements for a better user experience.
  *
@@ -5,6 +6,8 @@
  */
 
 ( function( $ ) {
+	var getCSS;
+
 	// Site title and description.
 	wp.customize( 'blogname', function( value ) {
 		value.bind( function( to ) {
@@ -18,17 +21,17 @@
 		} );
 	} );
 
-	var getCSS = _.debounce( function( to ){
+	getCSS = _.debounce( function( to ) {
 		$.when(
-			$.get( umbra.url + to.replace('#','') + '?no-cache' )
+			$.get( umbra.url + to.replace( '#', '' ) + '?no-cache' )
 		).then( function( css ) {
-			if ( ! $("#umbra-css").length ) {
-				$('head').append( '<style id="umbra-css"><style>' );
+			if ( ! $( '#umbra-css' ).length ) {
+				$( 'head' ).append( '<style id="umbra-css"><style>' );
 			}
 
-			$("#umbra-css").text(css);
-		});
-	}, 500);
+			$( '#umbra-css' ).text( css );
+		} );
+	}, 500 );
 
 	// Header text color.
 	wp.customize( 'umbra_base_color', function( value ) {
