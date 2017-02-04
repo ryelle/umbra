@@ -52,6 +52,10 @@ class Umbra_ImageColors {
 		}
 	}
 
+	public function is_custom_css_loaded() {
+		return ( ! class_exists( 'Jetpack_Custom_CSS' ) || ! function_exists( 'jetpack_sass_css_preprocess' ) );
+	}
+
 	public function print_css( $color = false ){
 		$css = false;
 
@@ -93,8 +97,8 @@ class Umbra_ImageColors {
 	}
 
 	public function generate_css( $color, $cache = true ) {
-		if ( ! class_exists( 'Jetpack_Custom_CSS' ) ) {
-			require Jetpack::get_module_path( 'custom-css' );
+		if ( $this->is_custom_css_loaded() ) {
+			require_once( Jetpack::get_module_path( 'custom-css' ) );
 		}
 
 		global $umbra_base_scss;
@@ -113,7 +117,11 @@ class Umbra_ImageColors {
 			 *                        the $base-color for all other color variables
 			 */
 			$sass = apply_filters( 'umbra_color_scheme', $sass, $color );
-			$css = Jetpack_Custom_CSS::minify( $sass, 'sass' );
+			if ( ! class_exists( 'Jetpack_Custom_CSS' ) ) {
+				$css = jetpack_sass_css_preprocess( $sass );
+			} else {
+				$css = Jetpack_Custom_CSS::minify( $sass, 'sass' );
+			}
 
 			if ( $cache && $css ) {
 				set_transient( $key, $css, WEEK_IN_SECONDS );
