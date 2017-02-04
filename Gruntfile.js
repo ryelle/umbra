@@ -128,7 +128,7 @@ module.exports = function( grunt ) {
 		pageres: {
 			dist: {
 				options: {
-					url: 'trunk.wordpress.dev',
+					url: 'vagrant.local',
 					sizes: ['320x480', '320x568', '768x1024'],
 					delay: '3',
 					dest: 'screenshots'
